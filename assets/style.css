@@ -34,7 +34,7 @@ html{
     line-height: 72px;
     padding-left: 16px;
     padding-right: 32px;
-    
+    color:rgb(0, 102, 255);
 }
 
 #nav{
@@ -64,6 +64,8 @@ html{
     width: 80px;
     margin-right: 16px;
     font-size: larger;
+    border-radius: 5px;
+
 }
 
 #background{
@@ -75,6 +77,20 @@ html{
 
 #play-button{
     position: absolute;
-    bo
-    
-} 
+    left:50%;
+    transform: translateX(-50%);
+    bottom:280px;
+    height: 60px;
+    width: 140px;
+    /* color:rgb(0, 102, 255); */
+    background-color: rgba(105, 101, 101, 0.4);
+    border-radius: 5px;
+    border-style:dashed;
+
+}
+
+#play-button a{
+    color:red;
+    font-size: 32px;
+    font-weight: 700;
+}
