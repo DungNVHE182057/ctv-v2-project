@@ -14,9 +14,9 @@ html{
 }
 
 #header{
-    height: 52px;
+    height: 72px;
     width: auto;
-    background-color: rgba(1, 1, 1, 0);
+    background-color: rgba(1, 1, 1, 0.4);
     position: fixed;
     top: 0;
     right:0;
@@ -25,11 +25,16 @@ html{
     
 }
 
+#header a{
+    font-weight: 700;
+}
+
 #header .logo{
     display: inline-block;
-    line-height: 52px;
+    line-height: 72px;
     padding-left: 16px;
     padding-right: 32px;
+    
 }
 
 #nav{
@@ -38,19 +43,27 @@ html{
 
 #nav li{
     display: inline-block;
-    
-    line-height: 52px;
-    padding: 0px 16px 0px 16px;
+    max-height: 72px;
+    line-height: 72px;
+    padding: 0px 32px 0px 32px;
 }
 
 #nav li a{
     color: aliceblue;
     text-decoration: none;
+    font-size: larger;
 }
 
-.login-btn{
+#login-btn{
     float: right;
+    position: relative;
     display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 80px;
+    margin-right: 16px;
+    font-size: larger;
 }
 
 #background{
@@ -59,3 +72,9 @@ html{
     position: relative;
     background: url(/assets/img/2829.jpg) top center / cover no-repeat;
 }
+
+#play-button{
+    position: absolute;
+    bo
+    
+} 
