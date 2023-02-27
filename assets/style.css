@@ -6,7 +6,7 @@
 }
 
 html{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #main{
@@ -43,15 +43,28 @@ html{
 
 #nav li{
     display: inline-block;
-    max-height: 72px;
+    /* max-height: 72px; */
+    max-width: 120px;
+    min-width: 120px;
     line-height: 72px;
-    padding: 0px 32px 0px 32px;
+    /* padding: 0px 32px 0px 32px; */
+    text-align: center;
 }
 
 #nav li a{
     color: aliceblue;
     text-decoration: none;
     font-size: larger;
+    
+}
+
+#nav li:hover{
+    background-color: rgba(220, 220, 220, 0.4);
+
+}
+
+#nav li:hover a{
+    color:aqua;
 }
 
 #login-btn{
@@ -65,7 +78,11 @@ html{
     margin-right: 16px;
     font-size: larger;
     border-radius: 5px;
+}
 
+#login-btn :hover{
+    color: red;
+    
 }
 
 #background{
@@ -85,7 +102,10 @@ html{
     /* color:rgb(0, 102, 255); */
     background-color: rgba(105, 101, 101, 0.4);
     border-radius: 5px;
-    border-style:dashed;
+    border-width: 1.5px;
+    border-color: antiquewhite;
+    letter-spacing: 4px;
+    text-align: center;
 
 }
 
@@ -93,4 +113,29 @@ html{
     color:red;
     font-size: 32px;
     font-weight: 700;
+    overflow: hidden;
+    text-shadow: 0 0 8px rgba(0,0,0,0.3)
 }
+
+#pb :hover a{
+    
+    color: purple;
+}
+
+#pb :hover{
+    background-color: ghostwhite;
+}
+
+.name-container{
+    color: aqua;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: 360px;
+    position:absolute;
+    font-size: 50px;
+    text-shadow: -4px -4px 4px #111, 8px 8px 4px #363636;
+}
+
+
+
+
