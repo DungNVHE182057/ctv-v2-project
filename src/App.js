@@ -1,10 +1,10 @@
 import React,{useState, useRef, useEffect} from 'react';  
-import Description from './components/Description';
-import Footer from './components/Footer';
-import Navigation from './components/Navigation';
-import MyEditor from './components/MyEditor';
-import MyIframe from './components/MyIframe';
-import { Level } from './gameData/Level';
+import Description from './components/Description/Description';
+import Footer from './components/Footer/Footer';
+import Navigation from './components/Navigation/Navigation';
+import MyEditor from './components/Editor/MyEditor';
+import MyIframe from './components/Iframe.js/MyIframe';
+import { Level } from './components/gameData/Level';
 function App() {
   const def = `<html>
   <body><h1>helloWorld</h1></body>
@@ -28,7 +28,8 @@ function App() {
          const attribute = data.expect[i].atb;
          const value = data.expect[i].val;
          for (let j = 0; j < attribute.length; ++j) 
-             if (anchor.style.getPropertyValue(attribute[j]) != value[j])
+         // eslint-disable-next-line
+         if (anchor.style.getPropertyValue(attribute[j]) != value[j])
                  return true;
         
       }
