@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';  
+import React,{useState, useRef, useEffect} from 'react';  
 import Description from './components/Description';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
@@ -15,26 +15,50 @@ function App() {
   const [srcDoc, setSrcDoc] = useState(def)
   const [desc, setDesc] = useState(Level[0].desc)
   const [html, setHtml] = useState(Level[0].html)
-  const [level, setLevel] = useState(1)
+  const level = useRef(0)
+  const frame = useRef(null)
+  const [nextLev, setNextLev] = useState(true)
   
-  useEffect(() => {
-    const compileCode = setTimeout(() => {
-      setSrcDoc(`
+    const handleOutput = () => {
+      const data = Level[level.current];
+      const thisFrame = frame.current;
+      
+      for (let i  = 0; i < data.expect.length; ++i) {
+         const anchor = thisFrame.contentWindow.document.styleSheets[0].cssRules[data.expect[i].id];
+         const attribute = data.expect[i].atb;
+         const value = data.expect[i].val;
+         for (let j = 0; j < attribute.length; ++j) 
+             if (anchor.style.getPropertyValue(attribute[j]) != value[j])
+                 return true;
+        
+      }
+      return false;
+    }
+
+    const check = () => {
+      setNextLev(handleOutput())
+    }
+  
+    useEffect(() => {
+      const compile = setInterval(setSrcDoc(`
       <html>
         <body>${html}</body>
-        <style>${css}</style>
+        <style>${(!css ? `body {
+          color: red;
+      }` : css)}</style>
       </html>
       `)
-    }, 250)
-    return () => clearTimeout(compileCode)
-  }, [css, html])
+    , 250)
+      return clearInterval(compile)
+    }, [css, html])
+
   const nextLevel = () => {
-    console.log(level)
-    setLevel((level+1)%Level.length)
-    setHtml(Level[level].html)
-    setDesc(Level[level].desc)
-    setSrcDoc("");
+    level.current = (level.current+1)%Level.length
+    setHtml(Level[level.current].html)
+    setDesc(Level[level.current].desc)
   }
+
+  
 
   return (
     <div id='landing'>
@@ -46,9 +70,10 @@ function App() {
       </div>
       <div className='right-screen'>
         <div className='change-level'>
-          <button onClick={nextLevel}>click me!</button>
+          <button onClick={nextLevel} disabled={nextLev}>click me!</button>
+          <button onClick={check} >check</button>
         </div>
-        <MyIframe srcDoc={srcDoc}/>
+        <MyIframe srcDoc={srcDoc}  forwardRef={frame}/>
       </div>
       <div>
         <Footer/>
