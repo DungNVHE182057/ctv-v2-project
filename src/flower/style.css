@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:wght@200;300;400;500&display=swap');
+
+body{
+    /* background-color: rgba(67,160,71); */
+    background-image: linear-gradient(to left top, rgba(250, 250, 5, 0.8), rgba(255, 0, 0, 0.8));
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-transform: uppercase;
+    font-family: 'Fredoka One', cursive;
+}
+p{
+    font-family: 'PT Sans', sans-serif;
+
+}
+.help{
+    font-family: 'Source Code Pro', monospace;
+    background-color: rgba(255,255,255,0.2);
+    border-bottom:  rgba(255,255,255,0.8) solid #000;
+}
+.app{
+    display: flex;
+    align-items: center;
+}
+#instructions{
+    padding: 30px;
+    width: 50%;
+
+}
+#pond {
+    position: relative;
+    /* background-color: rgba(31,87,104); */
+    background: url('image/dirt\ \(2\).svg');
+    /* background-image:  linear-gradient(.25turn, rgba(14, 153, 14, 0.5), 10%, rgba(8, 215, 0.5)); */
+    width: 50vw;
+    height: 50vh;
+    border-radius: 30px;
+    overflow: hidden;
+    min-width: 400px;
+    min-height: 400px;
+}
+#forefront{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+    display: flex;
+    z-index: 1;
+}
+.background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.lily-container, .frog-container{
+    width: 20%;
+    height: 20%;
+
+}
+.lily, .frog{
+    width: 100%;
+    height: 100%;
+    background-position:center ;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.lily.green{
+    background-image: url('image/pot.svg');
+    transform: scale(0.5);
+
+}
+.lily.red{
+    background-image: url('../foggy/image/lilypad-green.svg');
+    transform: scale(0.8);
+
+}
+.lily.yellow{
+    background-image: url('image/Pot001.svg');
+
+}
+.frog.green{
+    background-image: url('image/flower_29.svg');
+
+}
+.frog.red{
+    background-image: url('image/lotus_fleur.svg');
+
+
+}
+.frog.yellow{
+    background-image: url('image/flower_28.svg');
+}
+.editor{
+    position: relative;
+    background-color: rgb(224,224,224);
+    height: 260px;
+    padding: 10px 10px 10px 40px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(119,119,119);
+    overflow: hidden;
+
+}
+.line-numbers{
+    position: absolute;
+    background-color: rgb(153,153,153);
+    color: rgb(213,213,213);
+    top: 0;
+    left: 0;
+    height: 100%;
+    text-align: right;
+
+
+}
+pre{
+    margin: 0;
+}
+textarea{
+    height: 44px;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
+    margin-left: 26px;
+    width: 90%;
+}
+button{
+    background-color: rgb(209,22,6);
+    border: none;
+    border-radius: 4px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(255,255,255);
+    padding: 5px 10px;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+
+}
+
+
