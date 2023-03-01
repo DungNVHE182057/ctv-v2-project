@@ -8,66 +8,57 @@ import { Level } from "./components/gameData/Level";
 import Header from "./components/Header";
 import ScreenGame from "./components/ScreenGame";
 function App() {
-  const def = `<html>
-  <body><h1>helloWorld</h1></body>
-  <style></style>
-  </html>
-  `;
-  const [css, setCss] = useState("");
-  const [srcDoc, setSrcDoc] = useState(def);
-  const [desc, setDesc] = useState(Level[0].desc);
-  const [html, setHtml] = useState(Level[0].html);
-  const level = useRef(0);
-  const frame = useRef(null);
-  const [nextLev, setNextLev] = useState(true);
+  const [css, setCss] = useState('')
+  const [startCss, setStartCss] = useState(Level[0].css)
+  const [toEditor, setToEditor] = useState(Level[0].toEditor)
+  const [srcDoc, setSrcDoc] = useState('')
+  const [desc, setDesc] = useState(Level[0].desc)
+  const [html, setHtml] = useState(Level[0].html)
+  const level = useRef(0)
+  const frame = useRef(null)
+  const [nextLev, setNextLev] = useState(true)
 
   const handleOutput = () => {
     const data = Level[level.current];
     const thisFrame = frame.current;
-
-    for (let i = 0; i < data.expect.length; ++i) {
-      const anchor =
-        thisFrame.contentWindow.document.styleSheets[0].cssRules[
-          data.expect[i].id
-        ];
-      const attribute = data.expect[i].atb;
-      const value = data.expect[i].val;
-      for (let j = 0; j < attribute.length; ++j)
-        // eslint-disable-next-line
-        if (anchor.style.getPropertyValue(attribute[j]) != value[j])
-          return true;
+    
+    
+    for (let i  = 0; i < data.expect.length; ++i) {
+       const anchor = thisFrame.contentWindow.document.styleSheets[1].cssRules[data.expect[i].id];
+       const attribute = data.expect[i].atb;
+       const value = data.expect[i].val;
+       for (let j = 0; j < attribute.length; ++j) 
+           if (anchor.style.getPropertyValue(attribute[j]) != value[j])
+               return true;
+      
     }
     return false;
-  };
+  }
 
   const check = () => {
     setNextLev(handleOutput());
   };
-
+  
   useEffect(() => {
-    const compile = setInterval(
-      setSrcDoc(`
-      <html>
-        <body>${html}</body>
-        <style>${
-          !css
-            ? `body {
-          color: red;
-      }`
-            : css
-        }</style>
-      </html>
-      `),
-      250
-    );
-    return clearInterval(compile);
-  }, [css, html]);
+    const compile = setInterval(setSrcDoc(`
+    <html>
+      <body>${html}</body>
+      <style>${startCss}</style>
+      <style>${css}</style>
+    </html>
+    `)
+  , 250)
+    return clearInterval(compile)
+  }, [css, html, startCss])
 
-  const nextLevel = () => {
-    level.current = (level.current + 1) % Level.length;
-    setHtml(Level[level.current].html);
-    setDesc(Level[level.current].desc);
-  };
+const nextLevel = () => {
+  level.current = (level.current+1)%Level.length
+  setHtml(Level[level.current].html)
+  setDesc(Level[level.current].desc)
+  setStartCss(Level[level.current].css)
+  setToEditor(Level[level.current].toEditor)
+  setNextLev(true);
+}
 
   return (
     <div id="landing">
@@ -76,7 +67,7 @@ function App() {
       <div className="d-flex">
         <div className="left-screen" style={{width:'50%'}}>
           <Description srcDoc={desc} />
-          <MyEditor onChange={setCss} />
+          <MyEditor onChange={setCss} code={toEditor} />
           <div className="change-level">
             <button onClick={nextLevel} disabled={nextLev}>
               Next

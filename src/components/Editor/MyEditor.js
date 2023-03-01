@@ -1,9 +1,8 @@
 import Editor from "@monaco-editor/react";
-import classNames from "classnames/bind";
-import styles from './Editor.module.scss';
-const cx = classNames.bind(styles);
 
-const MyEditor = ({onChange}) => {
+const MyEditor = ({onChange, code}) => {
+    
+    
 
     const handleValueChange = (value) => {
         onChange(value);
@@ -14,7 +13,7 @@ const MyEditor = ({onChange}) => {
             width={"50vw"}
             theme={"vs-dark"}
             language={"css"}
-            value={""}
+            value={code}
             onChange={handleValueChange}
         />
     )

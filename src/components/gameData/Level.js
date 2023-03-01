@@ -7,10 +7,18 @@ export const Level = [
         <style></style>
         <script></script>
         </html>`,
-        css: ``,
+        css: `body {
+    color: red;
+}`,
+        toEditor: 
+        `/* task #1 */
+body { 
+    color: ;
+}`,
         expect: [
             {
                 id: 0,
+                tagName: ``,
                 atb: [
                     'color'
                 ],
@@ -28,15 +36,23 @@ export const Level = [
         <body><h1>2nd Description</h1></body>
         <style></style>
         </html>`,
-        css: ``,
+        css: `body {
+            color: blue;
+        }`,
+        toEditor: 
+        `/* task #2 */
+body { 
+    color: ;
+}`,
         expect: [
             {
                 id: 0,
+                tagName: ``,
                 atb: [
-                    
+                    'color'
                 ],
                 val: [
-                    
+                    'black'
                 ]
             }
         ]
