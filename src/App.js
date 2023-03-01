@@ -1,23 +1,89 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React,{useState, useRef, useEffect} from 'react';  
+import Description from './components/Description';
+import Footer from './components/Footer';
+import Navigation from './components/Navigation';
+import MyEditor from './components/MyEditor';
+import MyIframe from './components/MyIframe';
+import { Level } from './gameData/Level';
 function App() {
+  const def = `<html>
+  <body><h1>helloWorld</h1></body>
+  <style></style>
+  </html>
+  `
+  const [css, setCss] = useState('')
+  const [startCss, setStartCss] = useState(Level[0].css)
+  const [toEditor, setToEditor] = useState(Level[0].toEditor)
+  const [srcDoc, setSrcDoc] = useState(def)
+  const [desc, setDesc] = useState(Level[0].desc)
+  const [html, setHtml] = useState(Level[0].html)
+  const level = useRef(0)
+  const frame = useRef(null)
+  const [nextLev, setNextLev] = useState(true)
+  
+    const handleOutput = () => {
+      const data = Level[level.current];
+      const thisFrame = frame.current;
+      
+      
+      for (let i  = 0; i < data.expect.length; ++i) {
+         const anchor = thisFrame.contentWindow.document.styleSheets[1].cssRules[data.expect[i].id];
+         const attribute = data.expect[i].atb;
+         const value = data.expect[i].val;
+         for (let j = 0; j < attribute.length; ++j) 
+             if (anchor.style.getPropertyValue(attribute[j]) != value[j])
+                 return true;
+        
+      }
+      return false;
+    }
+
+    const check = () => {
+      setNextLev(handleOutput())
+      console.log(toEditor)
+    }
+  
+    useEffect(() => {
+      const compile = setInterval(setSrcDoc(`
+      <html>
+        <body>${html}</body>
+        <style>${startCss}</style>
+        <style>${css}</style>
+      </html>
+      `)
+    , 250)
+      return clearInterval(compile)
+    }, [css, html, startCss])
+
+  const nextLevel = () => {
+    level.current = (level.current+1)%Level.length
+    setHtml(Level[level.current].html)
+    setDesc(Level[level.current].desc)
+    setStartCss(Level[level.current].css)
+    setToEditor(Level[level.current].toEditor)
+    setNextLev(true);
+  }
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='landing'>
+      <Navigation/>
+      <div className='left-screen'>
+        <Description srcDoc={desc}/>
+        <MyEditor onChange={setCss} code={toEditor} />
+        
+      </div>
+      <div className='right-screen'>
+        <div className='change-level'>
+          <button onClick={nextLevel} disabled={nextLev}>click me!</button>
+          <button onClick={check} >check</button>
+        </div>
+        <MyIframe srcDoc={srcDoc}  forwardRef={frame}/>
+      </div>
+      <div>
+        <Footer/>
+      </div>
     </div>
   );
 }
