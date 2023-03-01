@@ -1,241 +1,150 @@
-import images from "../../assets/images"
+import images from "../../assets/images";
+const basicResultCss = `
+    html{
+    height: 100%;
+    overflow: hidden;
+}
+app{
+    width: 100%;
+    height: 100%;
+}
+.pond {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    min-width: 300px;
+    min-height: 400px;
+}
+.forefront{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+    display: flex;
+    z-index: 1;
+}
+.background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.behind-container, .above-container{
+    width: 20%;
+    height: 20%;
 
+}
+.behind, .above{
+    width: 100%;
+    height: 100%;
+    background-position:center ;
+    background-size: contain;
+    background-repeat: no-repeat;
+}`;
+const item1 = [
+  {
+    container: "above-container",
+    children: [
+      "above green",
+      "above green",
+      "above green",
+      "above green",
+      "above green",
+      "above red",
+      "above red",
+      "above red",
+      "above red",
+      "above red",
+      "above yellow",
+      "above yellow",
+      "above yellow",
+      "above yellow",
+      "above yellow",
+    ],
+  },
+];
+const item2 = [
+  {
+    container: "behind-container",
+    children: [
+      "behind green",
+      "behind green",
+      "behind green",
+      "behind green",
+      "behind green",
+      "behind red",
+      "behind red",
+      "behind red",
+      "behind red",
+      "behind red",
+      "behind yellow",
+      "behind yellow",
+      "behind yellow",
+      "behind yellow",
+      "behind yellow",
+    ],
+  },
+];
+function renderItems(item) {
+  return item
+    .map((container) =>
+      container.children.map(
+        (child) =>
+          `<div class="${container.container}">\n  <div class="${child}">\n  </div>\n</div>`
+      )
+    )
+    .join("\n")
+    .replace(/,/g, "");
+}
 export const cssResult = [
-    {
-        html:`
+  {
+    html: `
         <div class="app">
         <section class="pond">
             <div class="forefront">
-                <div class="frog-container">
-                    <div class="frog green">
-                        
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog green">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog green">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog green">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog green">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog red">
-                        
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog red">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog red">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog red">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog red">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog yellow">
-                        
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog yellow">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog yellow">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog yellow">
-
-                    </div>
-                </div>
-                <div class="frog-container">
-                    <div class="frog yellow">
-
-                    </div>
-                </div>
+                ${renderItems(item1)}
             </div>
             <div class="background">
-                <div class="lily-container">
-                    <div class="lily green" style="transform: scale(0.88) rotate(322deg)">
-                        
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily green" style="transform: scale(0.95) rotate(10deg)">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily green" style="transform: scale(0.88) rotate(322deg)">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily green" style="transform: scale(0.95) rotate(100deg)">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily green">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily red">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily red">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily red">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily red">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily red">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily yellow">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily yellow">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily yellow">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily yellow">
-
-                    </div>
-                </div>
-                <div class="lily-container">
-                    <div class="lily yellow">
-
-                    </div>
-                </div>
+                ${renderItems(item2)}
             </div>
 
     </div>
-        `
-    ,
-    css:`  
-    html{
-        height: 100%;
-        overflow: hidden;
-    }
-    app{
-        width: 100%;
-        height: 100%;
-    }
-    .pond {
-        position: relative;
+        `,
+    css: `  
+    ${basicResultCss}
+    .pond{
         background-color: rgba(31,87,104);
-        border-radius: 30px;
-        overflow: hidden;
-        min-width: 300px;
-        min-height: 400px;
+
     }
-    .forefront{
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 95%;
-        height: 95%;
-        padding: 2.5%;
-        display: flex;
-        z-index: 1;
-    }
-    .background{
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 95%;
-        height: 95%;
-        padding: 2.5%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-    .lily-container, .frog-container{
-        width: 20%;
-        height: 20%;
+    .behind.green{
+        background-image: url(${images.itemLilyGreen});
     
     }
-    .lily, .frog{
-        width: 100%;
-        height: 100%;
-        background-position:center ;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-    .lily.green{
-        background-image: url(${images.item4});
+    .behind.red{
+        background-image: url(${images.itemLilyRed});
     
     }
-    .lily.red{
-        background-image: url(${images.item5});
+    .behind.yellow{
+        background-image: url(${images.itemLilyYellow});
     
     }
-    .lily.yellow{
-        background-image: url(${images.item6});
+    .above.green{
+        background-image: url(${images.itemFrogGreen});
     
     }
-    .frog.green{
-        background-image: url(${images.item1});
+    .above.red{
+        background-image: url(${images.itemFrogRed});
     
     }
-    .frog.red{
-        background-image: url(${images.item2});
-    
-    }
-    .frog.yellow{
-        background-image: url(${images.item3});
-    
-    }`
-    }
-]
+    .above.yellow{
+        background-image: url(${images.itemFrogYellow});  
+    }`,
+  },
+];

@@ -26,7 +26,7 @@ body{
     display: flex;
 }
 button{
-    background-color: rgb(209,22,6);
+    background-color: rgba(209,22,6, 0.7);
     border: none;
     border-radius: 4px;
     font-family: 'PT Sans', sans-serif;
@@ -39,6 +39,7 @@ button{
     min-width: 80px;
 
     &:hover{
+        background-color: rgba(209,22,6);
         cursor: pointer;
         transform: scale(1.1);
         border: 1px solid #000;
