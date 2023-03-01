@@ -1,4 +1,5 @@
 import images from "../../assets/images";
+import {itemAboveLevel1, itemBehindLevel1, itemAboveLevel2, itemBehindLevel2} from "./StoreItem.js"
 const basicResultCss = `
     html{
     height: 100%;
@@ -33,65 +34,18 @@ app{
     height: 95%;
     padding: 2.5%;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.behind-container, .above-container{
-    width: 20%;
-    height: 20%;
 
 }
+
 .behind, .above{
     width: 100%;
     height: 100%;
     background-position:center ;
     background-size: contain;
     background-repeat: no-repeat;
+
 }`;
-const item1 = [
-  {
-    container: "above-container",
-    children: [
-      "above green",
-      "above green",
-      "above green",
-      "above green",
-      "above green",
-      "above red",
-      "above red",
-      "above red",
-      "above red",
-      "above red",
-      "above yellow",
-      "above yellow",
-      "above yellow",
-      "above yellow",
-      "above yellow",
-    ],
-  },
-];
-const item2 = [
-  {
-    container: "behind-container",
-    children: [
-      "behind green",
-      "behind green",
-      "behind green",
-      "behind green",
-      "behind green",
-      "behind red",
-      "behind red",
-      "behind red",
-      "behind red",
-      "behind red",
-      "behind yellow",
-      "behind yellow",
-      "behind yellow",
-      "behind yellow",
-      "behind yellow",
-    ],
-  },
-];
+
 function renderItems(item) {
   return item
     .map((container) =>
@@ -104,25 +58,34 @@ function renderItems(item) {
     .replace(/,/g, "");
 }
 export const cssResult = [
+  // LEVEL1
   {
     html: `
-        <div class="app">
-        <section class="pond">
-            <div class="forefront">
-                ${renderItems(item1)}
-            </div>
-            <div class="background">
-                ${renderItems(item2)}
-            </div>
-
-    </div>
-        `,
+    <div class="app">
+    <section class="pond">
+        <div class="forefront">
+            ${renderItems(itemAboveLevel1)}
+        </div>
+        <div class="background">
+            ${renderItems(itemBehindLevel1)}
+        </div>
+    
+    </div>`,
     css: `  
     ${basicResultCss}
     .pond{
         background-color: rgba(31,87,104);
 
     }
+    .background{
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+    .behind-container, .above-container{
+      width: 20%;
+      height: 20%;
+  
+  }
     .behind.green{
         background-image: url(${images.itemLilyGreen});
     
@@ -147,4 +110,48 @@ export const cssResult = [
         background-image: url(${images.itemFrogYellow});  
     }`,
   },
+  //LEVEL2 
+  {
+    html: `
+    <div class="app">
+    <section class="pond">
+        <div class="forefront">
+            ${renderItems(itemAboveLevel2)}
+        </div>
+        <div class="background">
+            ${renderItems(itemBehindLevel2)}
+        </div>
+    
+    </div>`,
+    css: `  
+    ${basicResultCss}
+    .pond{
+        background-color: rgba(31,87,104);
+
+    }
+    .behind-container, .above-container{
+      width: 25%;
+      height: 25%;
+  
+    }
+    .background{
+      align-items: center;
+      justify-content: space-between;
+
+    }
+    .forefront{
+      align-items: center;
+      justify-content: center;
+      
+    }
+    .behind.green{
+        background-image: url(${images.itemLilyGreen});    
+    }
+    .above.green{
+        background-image: url(${images.itemLotus});   
+    }
+    `,
+  },
 ];
+
+

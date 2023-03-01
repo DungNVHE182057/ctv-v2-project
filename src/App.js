@@ -3,7 +3,7 @@ import Description from "./components/Description/Description";
 import Footer from "./components/Footer/Footer";
 import MyEditor from "./components/Editor/MyEditor";
 import MyIframe from "./components/Iframe/MyIframe";
-import { Level } from "./components/gameData/Level";
+import { Level } from "./components/ScreenGame/Level";
 import Header from "./components/Header";
 import "./App.css";
 
@@ -30,6 +30,7 @@ function App() {
       const attribute = data.expect[i].atb;
       const value = data.expect[i].val;
       for (let j = 0; j < attribute.length; ++j)
+      // eslint-disable-next-line
         if (anchor.style.getPropertyValue(attribute[j]) != value[j])
           return true;
     }
