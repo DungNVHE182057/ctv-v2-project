@@ -1,169 +1,221 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
-html{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(#2b1055, #7597de);
+}
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#main{
-
+#main {
 }
 
-#header{
-    height: 72px;
-    width: auto;
-    background-color: rgba(1, 1, 1, 0.4);
-    position: fixed;
-    top: 0;
-    right:0;
-    left: 0;
-    z-index: 1;
-    
+#header {
+  height: 60px;
+  width: auto;
+  background-color: rgba(1, 1, 1, 0.4);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  /* z-index: 1; */
 }
 
-#header a{
-    font-weight: 700;
+#header a {
+  font-weight: 700;
 }
 
-#header .logo{
-    display: inline-block;
-    line-height: 72px;
-    padding-left: 16px;
-    padding-right: 32px;
-    color:rgb(0, 102, 255);
+#header .logo {
+  display: inline-block;
+  line-height: 72px;
+  padding-left: 16px;
+  padding-right: 32px;
+  color: rgb(0, 102, 255);
 }
 
-#nav{
-    display: inline-block;
+#nav {
+  display: inline-block;
 }
 
-#nav li{
-    display: inline-block;
-    /* max-height: 72px; */
-    max-width: 120px;
-    min-width: 120px;
-    line-height: 72px;
-    /* padding: 0px 32px 0px 32px; */
-    text-align: center;
+#nav li {
+  display: inline-block;
+  /* max-height: 72px; */
+  max-width: 120px;
+  min-width: 120px;
+  line-height: 72px;
+  /* padding: 0px 32px 0px 32px; */
+  text-align: center;
 }
 
-#nav li a{
-    color: aliceblue;
-    text-decoration: none;
-    font-size: larger;
-    
+#nav li a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: larger;
 }
 
-#nav li:hover{
-    background-color: rgba(220, 220, 220, 0.4);
-
+#nav li:hover {
+  background-color: rgba(220, 220, 220, 0.4);
 }
 
-#nav li:hover a{
-    color:aqua;
+#nav li:hover a {
+  color: aqua;
 }
 
-#login-btn{
-    float: right;
-    position: relative;
-    display: inline-block;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 40px;
-    width: 80px;
-    margin-right: 16px;
-    font-size: larger;
-    border-radius: 5px;
+#login-btn {
+  float: right;
+  position: relative;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40px;
+  width: 80px;
+  margin-right: 16px;
+  font-size: larger;
+  border-radius: 5px;
 }
 
-#login-btn :hover{
-    color: red;
-    
+#login-btn :hover {
+  color: red;
 }
 
-#background{
-    width: auto;
-    padding-top:50%;
-    position: relative;
-    background: url(/assets/img/2829.jpg) top center / cover no-repeat;
+#background {
+  width: auto;
+  padding-top: 50%;
+  position: relative;
+  /* background: url(/assets/img/2829.jpg) top center / cover no-repeat; */
 }
 
-#play-button{
-    position: absolute;
-    left:50%;
-    transform: translateX(-50%);
-    bottom:280px;
-    height: 60px;
-    width: 140px;
-    /* color:rgb(0, 102, 255); */
-    background-color: rgba(105, 101, 101, 0.4);
-    border-radius: 5px;
-    border-width: 1.5px;
-    border-color: antiquewhite;
-    letter-spacing: 4px;
-    text-align: center;
-
+#play-button {
+  position: absolute;
+  display: inline-block;
+  left: 46%;
+  /* transform: translateX(-50%); */
+  bottom: 210px;
+  height: 60px;
+  width: 140px;
+  z-index: 1;
+  /* color:rgb(0, 102, 255); */
+  background-color: rgba(105, 101, 101, 0.4);
+  border-radius: 5px;
+  border-width: 1.5px;
+  border-color: antiquewhite;
+  letter-spacing: 4px;
+  text-align: center;
+  transform: translateY(100px);
 }
 
-#play-button a{
-    color:red;
-    font-size: 32px;
-    font-weight: 700;
-    overflow: hidden;
-    text-shadow: 0 0 8px rgba(0,0,0,0.3)
+#play-button a {
+  text-decoration: none;
+
+  color: red;
+  font-size: 32px;
+  font-weight: 700;
+  overflow: hidden;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-#pb :hover a{
-    
-    color: purple;
+#pb :hover a {
+  color: purple;
 }
 
-#pb :hover{
-    background-color: ghostwhite;
+#pb :hover {
+  background-color: ghostwhite;
 }
 
-.name-container{
-    color: aqua;
-    left:50%;
-    transform: translateX(-50%);
-    bottom: 360px;
-    position:absolute;
-    font-size: 50px;
-    text-shadow: -4px -4px 4px #111, 8px 8px 4px #363636;
+.name-container {
+  color: aqua;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 360px;
+  position: absolute;
+  font-size: 50px;
+  text-shadow: -4px -4px 4px #111, 8px 8px 4px #363636;
 }
 
-#about{
-    margin: 64px 200px 64px 200px;
-    text-align: center;
-    overflow: hidden;
+#about {
+  margin: 64px 200px 64px 200px;
+  text-align: center;
+  overflow: hidden;
 }
 
-#about .about-text{
-    margin-bottom: 40px;
+#about .about-text {
+  margin-bottom: 40px;
 }
 
-.member-infor{
-    width: 33.3333%;
-    height: auto;
-    float: left;
-    text-align: center;
-    margin-bottom: 40px;
+.member-infor {
+  width: 33.3333%;
+  height: auto;
+  float: left;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.member-infor img{
-    width: 200px;
-    height: auto;
+.member-infor img {
+  width: 200px;
+  height: auto;
 }
 
-#footer{
-    height: 300px;
-    background-color: rgb(27, 9, 47);
+#footer {
+  height: 300px;
+  background-color: rgb(27, 9, 47);
 }
 
-#footer h1{
-    color: aliceblue;
+#footer h1 {
+  color: aliceblue;
 }
+
+#description {
+  position: absolute;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 5vw;
+  z-index: 1;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+section img#moon {
+  mix-blend-mode: screen;
+}
+
+section img#mountains_front {
+  z-index: 2;
+}
+
+/* section ::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #1c0522, transparent);
+} */
+/* #about {
+  position: relative;
+  padding: 100px;
+  background: #1c0522;
+} */
