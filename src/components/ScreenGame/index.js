@@ -10,18 +10,37 @@ function ScreenGame() {
     <>
       <section className={cx("screen")}>
         <div className={cx("forefront")}>
-
-          {/* <Item image={images.logo} /> */}
+          <Item image={images.item1} />
+          <Item image={images.item1} />
+          <Item image={images.item1} />
           <Item image={images.item1} />
           <Item image={images.item2} />
+          <Item image={images.item2} />
+          <Item image={images.item2} />
+          <Item image={images.item2} />
+          <Item image={images.item2} />
+          <Item image={images.item3} />
+          <Item image={images.item3} />
+          <Item image={images.item3} />
+          <Item image={images.item3} />
+          <Item image={images.item3} />
         </div>
         <div className={cx("background")}>
-          <Item image="" />
-          <Item image="" />
-          <Item image="" />
-          <Item image="" />
-          <Item image="" />
-          <Item image="" />
+          <Item image={images.item4} />
+          <Item image={images.item4} />
+          <Item image={images.item4} />
+          <Item image={images.item4} />
+          <Item image={images.item4} />
+          <Item image={images.item5} />
+          <Item image={images.item5} />
+          <Item image={images.item5} />
+          <Item image={images.item5} />
+          <Item image={images.item5} />
+          <Item image={images.item6} />
+          <Item image={images.item6} />
+          <Item image={images.item6} />
+          <Item image={images.item6} />
+          <Item image={images.item6} />
         </div>
       </section>
     </>

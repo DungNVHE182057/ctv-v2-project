@@ -1,0 +1,14 @@
+.change-level{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+
+@media (min-width: 740px) {
+    .wrapper{
+        display: flex;
+    }
+    .left-screen, .right-screen{
+        width: 50%;
+    }
+}

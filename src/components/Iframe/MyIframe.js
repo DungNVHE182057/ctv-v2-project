@@ -8,9 +8,8 @@ const MyIframe = ({srcDoc, forwardRef}) => {
     return (
         <iframe
             ref={forwardRef}
-            width={"100%"}
             title="OUTPUT"
-            className="output"
+            className={cx('screen')}
             srcDoc={srcDoc}
         />
     )
