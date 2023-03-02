@@ -2,7 +2,7 @@ import images from "../../assets/images";
 import {itemAboveLevel1, itemBehindLevel1, itemAboveLevel2, itemBehindLevel2} from "./StoreItem.js"
 console.log(images.itemKnight);
 const basicResultCss = `
-    html{
+html{
     height: 100%;
     overflow: hidden;
 }
@@ -37,7 +37,11 @@ app{
     display: flex;
 
 }
+.behind-container, .above-container{
+  width: 20%;
+  height: 20%;
 
+}
 .behind, .above{
     width: 100%;
     height: 100%;
@@ -45,7 +49,8 @@ app{
     background-size: contain;
     background-repeat: no-repeat;
 
-}`;
+}
+`;
 
 function renderItems(item) {
   return item
@@ -61,23 +66,27 @@ function renderItems(item) {
 export const cssResult = [
   // LEVEL1
   {
-
+    html: `
+    <div class="app">
+    <section class="pond">
+        <div class="forefront">
+            ${renderItems(itemAboveLevel1)}
+        </div>
+        <div class="background">
+            ${renderItems(itemBehindLevel1)}
+        </div>
+    
+    </div>`,
     css: `  
     ${basicResultCss}
 
     .pond{
-        background-color: rgba(31,87,104);
-
+    background-image: linear-gradient(to left top,#4b489c, #512668);
     }
     .background{
       flex-direction: column;
       flex-wrap: wrap;
     }
-    .behind-container, .above-container{
-      width: 20%;
-      height: 20%;
-  
-  }
     .behind.green{
         background-image: url(${images.itemLilyGreen});
     
@@ -118,8 +127,7 @@ export const cssResult = [
     css: `  
     ${basicResultCss}
     .pond{
-        background-color: rgba(31,87,104);
-
+    background-image: linear-gradient(to left top,#4b489c, #512668);
     }
     .behind-container, .above-container{
       width: 25%;
@@ -161,17 +169,15 @@ export const cssResult = [
         ${basicResultCss}
         .forefront{
  
-            background-color: #fff;
         }
-        .pond{
-            background-color: rgba(31,87,104);
+        body{
+            background-image: url(${images.itemBackgroundAdventure});
+            background-position:center ;
+            background-size: contain;
+            background-repeat: no-repeat;
     
         }
-        .behind-container, .above-container{
-          width: 25%;
-          height: 25%;
-      
-        }
+
         .background{
           align-items: center;
           justify-content: space-between;
@@ -186,7 +192,7 @@ export const cssResult = [
             background-image: url(${images.itemKnight});    
         }
         .above.green{
-            background-image: url(${images.itemKnight});   
+            background-image: url(${images.itemMage});   
         }
         `,
       },

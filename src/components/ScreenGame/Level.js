@@ -19,18 +19,18 @@ export const Level = [
         css: `${cssResult[2].css}`,
         toEditor: 
         `/* task #3 */
-body { 
-    color: ;
+.forefront { 
+
 }`,
         expect: [
             {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    'color'
+                    // 'color'
                 ],
                 val: [
-                    'black'
+                    // 'black'
                 ]
             }
         ]
@@ -55,10 +55,10 @@ body {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    // 'justify-content'
+                    'justify-content'
                 ],
                 val: [
-                    // 'space-between'
+                    'space-between'
                 ]
             }
         ]
@@ -85,10 +85,10 @@ body {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    // 'flex-direction', 'flex-wrap'
+                    'flex-direction', 'flex-wrap'
                 ],
                 val: [
-                    // 'column', 'wrap'
+                    'column', 'wrap'
                 ]
             }
         ]
