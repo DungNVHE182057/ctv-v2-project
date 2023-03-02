@@ -6,7 +6,9 @@ import MyIframe from "./components/Iframe/MyIframe";
 import { Level } from "./components/ScreenGame/Level";
 import Header from "./components/Header";
 import "./App.css";
-
+const body = document.querySelector('body');
+const bgColor = window.getComputedStyle(body).getPropertyValue('background-color');
+console.log(bgColor);
 function App() {
   const [css, setCss] = useState("");
   const [startCss, setStartCss] = useState(Level[0].css);
@@ -89,7 +91,10 @@ function App() {
 
       <Footer />
     </div>
+
   );
+
+
 }
 
 export default App;

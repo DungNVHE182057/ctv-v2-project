@@ -1,17 +1,22 @@
 import { cssData } from "./cssData"
 import { cssResult } from "./cssResult"
+
+// const bodyElement = document.getElementsByTagName('body')[0];
+// console.log(bodyElement);
+// bodyElement.style.backgroundColor="#2d123c"
 export const Level = [
     //LEVEL3
     {
-        html:`<h1>helloWorldAgain3</h1>`,
+        html:`${cssResult[2].html}`,
         image: [],
         desc: `<html>
-        <body>${cssData[1].html}</body>
-        <style>${cssData[1].css}</style>
+        <body>${cssData[2].html}</body>
+        <style>
+            ${cssData[2].css}}
+        </style>
+        <script></script>
         </html>`,
-        css: `body {
-            color: blue;
-        }`,
+        css: `${cssResult[2].css}`,
         toEditor: 
         `/* task #3 */
 body { 
@@ -50,10 +55,10 @@ body {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    'justify-content'
+                    // 'justify-content'
                 ],
                 val: [
-                    'space-between'
+                    // 'space-between'
                 ]
             }
         ]

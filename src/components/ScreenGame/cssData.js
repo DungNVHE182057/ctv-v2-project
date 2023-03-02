@@ -28,5 +28,12 @@ export const cssData =[
     <p> Use the <span class="help">justify-content</span> to help the lotus float on the leaves
     </p>`
 },
+{   
+    css:`${basicTextDescriptionCss}`,
+    html:
+    `<b>Level ${levelNumber[2]}:</b>
+    <p> Use the <span class="help">justify-content</span> to help the character
+    </p>`
+},
 
 ]
