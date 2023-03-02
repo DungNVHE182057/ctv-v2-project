@@ -18,6 +18,10 @@ b{
     font-family: "Fredoka One", cursive;
 
 }
+.hint{
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
@@ -47,7 +51,9 @@ export const cssData =[
     `${basicTextDescriptionCss}`,
     html:
     `<b>Level ${levelNumber[0]}:</b>
-    <p>Help this army of frogs form three orderly columns using a combination of 
+    <p>The explorers are being blocked by a team of frogs. Please arrange this team of frogs into three rows to create the path.
+    </p>
+    <p class = "hint" >You can help this army of frogs form three orderly columns using a combination of 
         <span class="help">flex-direction</span>
         and <span class="help">flex-wrap</span>
     </p>`
@@ -61,10 +67,7 @@ export const cssData =[
 },
 {   
     css:`${basicTextDescriptionCss}
-    .hint{
-        color: rgba(255,255,255,0.7);
-        font-size: 0.8rem;
-    }
+
     img.c{
         width: 13%;
         height:13%
@@ -72,7 +75,7 @@ export const cssData =[
     `,
     html:
     `<b>Level ${levelNumber[2]}:</b>
-    <p> The master is hungry, you must move the adventurers to the 
+    <p> The master is hungry, you must move each adventurer to the 
     right food and get it for the master.
     The goal is:</p>
     <img class = 'c' src="${images.itemKnight}" /> 
@@ -81,6 +84,27 @@ export const cssData =[
     <img src="${images.itemCheese}" /><br>
     <img class = 'c' src="${images.itemRogue}" /> 
     <img  src="${images.itemSalmon}" />
+    `
+},
+{   
+    css:`${basicTextDescriptionCss}
+
+    img{
+        width: 15%;
+        height:15%
+    }
+    `,
+    html:
+    `<b>Level ${levelNumber[3]}:</b>
+    <p> The master is in the forest, fight with the insects to meet him.
+    Use enough 2 css style <span class="help">order</span> and <span class="help">align-self</span> to win.
+    The goal is:</p>
+    <img src="${images.itemKnight}" /> 
+    <img src="${images.itemZZZ}" /><br>
+    <img src="${images.itemMage}" /> 
+    <img src="${images.itemSnake}" /><br>
+    <img src="${images.itemRogue}" /> 
+    <img src="${images.itemSpider}" />
     `
 },
 

@@ -3,6 +3,80 @@ import { cssResult } from "./cssResult"
 
 
 export const Level = [
+        //LEVEL4
+        {
+            html:`${cssResult[3].html}`,
+            image: [],
+            desc: `<html>
+            <body>${cssData[3].html}</body>
+            <style>
+                ${cssData[3].css}}
+            </style>
+            <script></script>
+            </html>`,
+            css: `${cssResult[3].css}`,
+            toEditor: 
+            `/* task #4 */
+.forefront { 
+    display: flex;
+}
+/*css this class*/
+.above-container.character0{
+    /*ninja*/
+
+}
+/*not css this class */
+.above-container.character1{
+    /*violet*/
+    order: 2;  
+}
+/*css this class*/
+.above-container.character2{
+    /*knight*/
+    
+}
+    `,
+    // .forefront { 
+    //     display: flex;
+    // }
+    // .above-container.character0{
+    //     order: 3;
+    //     align-self:center ;
+    // }
+    // .above-container.character1{
+    //     order: 2;  
+    // }
+    // .above-container.character2{
+    //     order: 1;
+    //     align-self: flex-start;
+    // }
+        
+            expect: [
+
+                {
+                    id: 1,
+                    tagName: ``,
+                    atb: [
+                        'align-self','order'
+                    ],
+                    val: [
+                        'center', '3'
+                    ]  
+                },
+                
+                {
+                    id: 3,
+                    tagName: ``,
+                    atb: [
+                        'order', 'align-self'
+                    ],
+                    val: [
+                         '1', 'flex-start'
+                    ]  
+                }
+            ]
+    
+        },
     //LEVEL3
     {
         html:`${cssResult[2].html}`,
@@ -26,10 +100,10 @@ export const Level = [
                 id: 0,
                 tagName: ``,
                 atb: [
-                    'justify-content','align-items','flex-direction'
+                    // 'justify-content','align-items','flex-direction'
                 ],
                 val: [
-                    'space-evenly', 'center', 'row-reverse'
+                    // 'space-evenly', 'center', 'row-reverse'
                 ]
             }
         ]
