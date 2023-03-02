@@ -1,5 +1,6 @@
 import images from "../../assets/images";
 import {itemAboveLevel1, itemBehindLevel1, itemAboveLevel2, itemBehindLevel2} from "./StoreItem.js"
+console.log(images.itemKnight);
 const basicResultCss = `
     html{
     height: 100%;
@@ -60,19 +61,10 @@ function renderItems(item) {
 export const cssResult = [
   // LEVEL1
   {
-    html: `
-    <div class="app">
-    <section class="pond">
-        <div class="forefront">
-            ${renderItems(itemAboveLevel1)}
-        </div>
-        <div class="background">
-            ${renderItems(itemBehindLevel1)}
-        </div>
-    
-    </div>`,
+
     css: `  
     ${basicResultCss}
+
     .pond{
         background-color: rgba(31,87,104);
 
@@ -152,6 +144,52 @@ export const cssResult = [
     }
     `,
   },
+    //LEVEL3 
+    {
+        html: `
+        <div class="app">
+        <section class="pond">
+            <div class="forefront">
+                ${renderItems(itemAboveLevel2)}
+            </div>
+            <div class="background">
+                ${renderItems(itemBehindLevel2)}
+            </div>
+        
+        </div>`,
+        css: `  
+        ${basicResultCss}
+        .forefront{
+ 
+            background-color: #fff;
+        }
+        .pond{
+            background-color: rgba(31,87,104);
+    
+        }
+        .behind-container, .above-container{
+          width: 25%;
+          height: 25%;
+      
+        }
+        .background{
+          align-items: center;
+          justify-content: space-between;
+    
+        }
+        .forefront{
+          align-items: center;
+          justify-content: center;
+          
+        }
+        .behind.green{
+            background-image: url(${images.itemKnight});    
+        }
+        .above.green{
+            background-image: url(${images.itemKnight});   
+        }
+        `,
+      },
 ];
 
 
