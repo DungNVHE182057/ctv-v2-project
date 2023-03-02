@@ -12,10 +12,15 @@
 }
 html{
     font-size: 62.5%;
-    // background-image: url("https://github.com/DungNVHE182057/ctv-v2-project/blob/home-page/assets/img/2829.jpg?raw=true");
+    background-image: url("https://github.com/DungNVHE182057/ctv-v2-project/blob/home-page/assets/img/2829.jpg?raw=true");
     background-position:center ;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
+}
+@media (max-width: 740px) {
+  html{
+      background-position:right ;
+  }
 }
 body{
     font-family: 'PT Sans', sans-serif;
@@ -25,12 +30,10 @@ body{
     // background-color: rgba(67,160,71);
     // background-image: linear-gradient(to left top, rgba(250, 250, 5, 0.7), rgba(255, 0, 0, 0.7));
     // background-image: linear-gradient(to left top,#4b489c, #512668);
-    background-image: url("https://github.com/DungNVHE182057/ctv-v2-project/blob/home-page/assets/img/2829.jpg?raw=true");
-    background-position:center ;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-
+    // background-image: url("https://github.com/DungNVHE182057/ctv-v2-project/blob/home-page/assets/img/2829.jpg?raw=true");
+    // background-position:center ;
+    // background-size: cover;
+    // background-repeat: no-repeat;
     color: rgba(255,255,255,0.8);
 } 
 .d-flex{
@@ -42,13 +45,14 @@ button{
     border: none;
     border-radius: 4px;
     font-family: 'PT Sans', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 1.5;
     color: rgb(255,255,255);
     padding: 5px 10px;
     height: 80%;
     margin: 0 5px;
     min-width: 80px;
+    font-family: "Fredoka One", cursive;
 
     &:hover{
         // background-color: rgba(209,22,6);
@@ -58,3 +62,23 @@ button{
         border: 1px solid #000;
     }
 }
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #46155c; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #478dff; 
+  }

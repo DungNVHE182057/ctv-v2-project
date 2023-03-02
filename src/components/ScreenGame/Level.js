@@ -1,9 +1,7 @@
 import { cssData } from "./cssData"
 import { cssResult } from "./cssResult"
 
-// const bodyElement = document.getElementsByTagName('body')[0];
-// console.log(bodyElement);
-// bodyElement.style.backgroundColor="#2d123c"
+
 export const Level = [
     //LEVEL3
     {
@@ -21,16 +19,17 @@ export const Level = [
         `/* task #3 */
 .forefront { 
 
-}`,
+}
+`,
         expect: [
             {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    // 'color'
+                    'justify-content','align-items','flex-direction'
                 ],
                 val: [
-                    // 'black'
+                    'space-evenly', 'center', 'row-reverse'
                 ]
             }
         ]
@@ -49,16 +48,17 @@ export const Level = [
         `/* task #2 */
 .forefront { 
 
-}`,
+}
+`,
         expect: [
             {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    'justify-content'
+                    // 'justify-content', 'align-items'
                 ],
                 val: [
-                    'space-between'
+                    // 'space-between', 'flex-end'
                 ]
             }
         ]
@@ -79,16 +79,17 @@ export const Level = [
         `/* task #1 */
 .forefront { 
 
-}`,
+}
+`,
         expect: [
             {
                 id: 0,
                 tagName: ``,
                 atb: [
-                    'flex-direction', 'flex-wrap'
+                    // 'flex-direction', 'flex-wrap'
                 ],
                 val: [
-                    'column', 'wrap'
+                    // 'column', 'wrap'
                 ]
             }
         ]

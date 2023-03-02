@@ -1,14 +1,27 @@
-.change-level{
+.change-level {
     display: flex;
     justify-content: center;
     height: 50px;
 }
 
 @media (min-width: 740px) {
-    .wrapper{
+    .wrapper {
         display: flex;
     }
-    .left-screen, .right-screen{
+
+    .left-screen,
+    .right-screen {
         width: 50%;
+    }
+
+    .left-screen {
+        padding-right: 1.6rem;
+    }
+}
+
+@media (max-width: 740px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column-reverse;
     }
 }

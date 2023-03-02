@@ -4,11 +4,9 @@ import Footer from "./components/Footer/Footer";
 import MyEditor from "./components/Editor/MyEditor";
 import MyIframe from "./components/Iframe/MyIframe";
 import { Level } from "./components/ScreenGame/Level";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import "./App.css";
-const body = document.querySelector('body');
-const bgColor = window.getComputedStyle(body).getPropertyValue('background-color');
-console.log(bgColor);
+
 function App() {
   const [css, setCss] = useState("");
   const [startCss, setStartCss] = useState(Level[0].css);
@@ -70,7 +68,6 @@ function App() {
   return (
     <div id="landing">
       <Header />
-
       <div className="app">
         <div className="wrapper">
           <div className="left-screen" >

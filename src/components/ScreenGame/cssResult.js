@@ -1,57 +1,7 @@
-import images from "../../assets/images";
-import {itemAboveLevel1, itemBehindLevel1, itemAboveLevel2, itemBehindLevel2} from "./StoreItem.js"
-console.log(images.itemKnight);
-const basicResultCss = `
-html{
-    height: 100%;
-    overflow: hidden;
-}
-app{
-    width: 100%;
-    height: 100%;
-}
-.pond {
-    position: relative;
-    border-radius: 30px;
-    overflow: hidden;
-    min-width: 300px;
-    min-height: 400px;
-}
-.forefront{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 95%;
-    height: 95%;
-    padding: 2.5%;
-    display: flex;
-    z-index: 1;
-}
-.background{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 95%;
-    height: 95%;
-    padding: 2.5%;
-    display: flex;
-
-}
-.behind-container, .above-container{
-  width: 20%;
-  height: 20%;
-
-}
-.behind, .above{
-    width: 100%;
-    height: 100%;
-    background-position:center ;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-}
-`;
-
+import images from "../../assets/images/storeImage.js";
+import {basicResultCss, itemAboveLevel1, itemBehindLevel1, itemAboveLevel2, itemBehindLevel2,
+  itemAboveLevel3,itemBehindLevel3
+} from "./StoreItem.js"
 function renderItems(item) {
   return item
     .map((container) =>
@@ -75,14 +25,16 @@ export const cssResult = [
         <div class="background">
             ${renderItems(itemBehindLevel1)}
         </div>
-    
+        </section>
     </div>`,
     css: `  
     ${basicResultCss}
 
-    .pond{
-    background-image: linear-gradient(to left top,#4b489c, #512668);
-    }
+    body{
+        background-image: url(${images.itemBackgroundFrog});
+        background-position: bottom ;
+    }   
+
     .background{
       flex-direction: column;
       flex-wrap: wrap;
@@ -122,25 +74,27 @@ export const cssResult = [
         <div class="background">
             ${renderItems(itemBehindLevel2)}
         </div>
+        </section>
     
     </div>`,
     css: `  
     ${basicResultCss}
-    .pond{
-    background-image: linear-gradient(to left top,#4b489c, #512668);
-    }
+
+    body{
+        background-image: url(${images.itemWater});
+        background-position:bottom ;
+    } 
     .behind-container, .above-container{
-      width: 25%;
-      height: 25%;
-  
-    }
+        width: 25%;
+        height: 25%;     
+      }
     .background{
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
 
     }
     .forefront{
-      align-items: center;
+      align-items: flex-center;
       justify-content: center;
       
     }
@@ -158,11 +112,12 @@ export const cssResult = [
         <div class="app">
         <section class="pond">
             <div class="forefront">
-                ${renderItems(itemAboveLevel2)}
+                ${renderItems(itemAboveLevel3)}
             </div>
             <div class="background">
-                ${renderItems(itemBehindLevel2)}
+                ${renderItems(itemBehindLevel3)}
             </div>
+            </section>
         
         </div>`,
         css: `  
@@ -173,26 +128,38 @@ export const cssResult = [
         body{
             background-image: url(${images.itemBackgroundAdventure});
             background-position:center ;
-            background-size: contain;
-            background-repeat: no-repeat;
-    
+        }
+        .behind-container{
+          width: 10%;
+          height: 10%;    
+        }
+        .background{
+          justify-content: space-evenly;
+          align-items: center;
+        }
+        .forefront { 
+          flex-direction: row-reverve;
+          align-items: flex-end;
+
         }
 
-        .background{
-          align-items: center;
-          justify-content: space-between;
-    
-        }
-        .forefront{
-          align-items: center;
-          justify-content: center;
-          
-        }
         .behind.green{
-            background-image: url(${images.itemKnight});    
+            background-image: url(${images.itemApple});    
+        }
+        .behind.red{
+            background-image: url(${images.itemCheese});    
+        }
+        .behind.yellow{
+            background-image: url(${images.itemSalmon});    
         }
         .above.green{
+            background-image: url(${images.itemRogue});   
+        }
+        .above.red{
             background-image: url(${images.itemMage});   
+        }
+        .above.yellow{
+            background-image: url(${images.itemKnight});   
         }
         `,
       },
