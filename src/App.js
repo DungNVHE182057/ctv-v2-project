@@ -70,16 +70,16 @@ function App() {
   const check = () => {
     const output = handleOutput()
     setNextLev(output);
-    
+    console.log(streak.current)
     if (output) {
-      if (streak.current >= 0) streak.current = 0;
+      if (streak.current > 0) streak.current = 0;
       else streak.current = streak.current - 1;
       showErrorToast(ToastMsg.failure[Math.round((streak.current < -1) ? Math.random()*ToastMsg.failure.length : Math.random())]);
     }
     else {
-      if (streak.current <= 0) streak.current = 0;
+      if (streak.current < 0) streak.current = 0;
       else streak.current = streak.current + 1;
-      showSuccessToast(Math.round((streak.current > 1) ? Math.random()*ToastMsg.successes.length : Math.random()));
+      showSuccessToast(ToastMsg.successes[Math.round((streak.current > 1) ? Math.random()*ToastMsg.successes.length : Math.random())]);
     }
   };
 
