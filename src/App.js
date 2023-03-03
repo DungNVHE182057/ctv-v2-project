@@ -5,7 +5,10 @@ import MyEditor from "./components/Editor/MyEditor";
 import MyIframe from "./components/Iframe/MyIframe";
 import { Level } from "./components/ScreenGame/Level";
 import Header from "./components/Header/Header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import { ToastMsg } from "./components/ScreenGame/ToastMsg";
 
 function App() {
   const [css, setCss] = useState("");
@@ -15,6 +18,7 @@ function App() {
   const [desc, setDesc] = useState(Level[0].desc);
   const [html, setHtml] = useState(Level[0].html);
   const level = useRef(0);
+  const streak = useRef(0);
   const frame = useRef(null);
   const [nextLev, setNextLev] = useState(true);
 
@@ -29,17 +33,54 @@ function App() {
         ];
       const attribute = data.expect[i].atb;
       const value = data.expect[i].val;
-      for (let j = 0; j < attribute.length; ++j)
+      for (let j = 0; j < attribute.length; ++j){
       // eslint-disable-next-line
+        if (anchor == undefined) return true;
         if (anchor.style.getPropertyValue(attribute[j]) != value[j])
           return true;
+      }
     }
     return false;
   };
 
+  const showSuccessToast = (msg) => {
+    toast.success(msg || `Compiled Successfully!`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const showErrorToast = (msg) => {
+    toast.error(msg || `Something went wrong! Please try again.`, {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   const check = () => {
-    setNextLev(handleOutput());
-    console.log(startCss);
+    const output = handleOutput()
+    setNextLev(output);
+    
+    if (output) {
+      if (streak.current >= 0) streak.current = 0;
+      else streak.current = streak.current - 1;
+      showErrorToast(ToastMsg.failure[Math.round((streak.current < -1) ? Math.random()*ToastMsg.failure.length : Math.random())]);
+    }
+    else {
+      if (streak.current <= 0) streak.current = 0;
+      else streak.current = streak.current + 1;
+      showSuccessToast(Math.round((streak.current > 1) ? Math.random()*ToastMsg.successes.length : Math.random()));
+    }
   };
 
   useEffect(() => {
@@ -67,6 +108,17 @@ function App() {
 
   return (
     <div id="landing">
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Header />
       <div className="app">
         <div className="wrapper">

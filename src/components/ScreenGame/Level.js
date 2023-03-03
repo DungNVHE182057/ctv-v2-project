@@ -23,7 +23,7 @@ export const Level = [
 /*css this class*/
 .above-container.character0{
     /*ninja*/
-
+    
 }
 /*not css this class */
 .above-container.character1{
