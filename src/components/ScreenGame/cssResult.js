@@ -1,13 +1,24 @@
 import images from "../../assets/images/storeImage.js";
-import {basicResultCss, itemAboveLevel1, itemBehindLevel1, itemAboveLevel2, itemBehindLevel2,
-  itemAboveLevel3,itemBehindLevel3,itemAboveLevel4,itemBehindLevel4
-} from "./StoreItem.js"
+import {
+  basicResultCss,
+  itemAboveLevel1,
+  itemBehindLevel1,
+  itemAboveLevel2,
+  itemBehindLevel2,
+  itemAboveLevel3,
+  itemBehindLevel3,
+  itemAboveLevel4,
+  itemBehindLevel4,
+  itemAboveLevel5,
+} from "./StoreItem.js";
 function renderItems(item) {
   return item
     .map((container, index) =>
       container.children.map(
         (child) =>
-          `<div class="${container.container} character${index++}">\n  <div class="${child}">\n  </div>\n</div>`
+          `<div class="${
+            container.container
+          } character${index++}">\n  <div class="${child}">\n  </div>\n</div>`
       )
     )
     .join("\n")
@@ -63,7 +74,7 @@ export const cssResult = [
         background-image: url(${images.itemFrogYellow});  
     }`,
   },
-  //LEVEL2 
+  //LEVEL2
   {
     html: `
     <div class="app">
@@ -103,9 +114,9 @@ export const cssResult = [
     }
     `,
   },
-    //LEVEL3 
-    {
-        html: `
+  //LEVEL3
+  {
+    html: `
         <div class="app">
         <section class="pond">
             <div class="forefront">
@@ -117,7 +128,7 @@ export const cssResult = [
             </section>
         
         </div>`,
-        css: `  
+    css: `  
         ${basicResultCss}
         .forefront{
  
@@ -159,10 +170,10 @@ export const cssResult = [
             background-image: url(${images.itemKnightActive});   
         }
         `,
-      },
-         //LEVEL4
-    {
-      html: `
+  },
+  //LEVEL4
+  {
+    html: `
       <div class="app">
       <section class="pond">
           <div class="forefront">
@@ -174,7 +185,7 @@ export const cssResult = [
           </section>
       
       </div>`,
-      css: `  
+    css: `  
       ${basicResultCss}
       .forefront{
         display: flex;
@@ -224,7 +235,144 @@ export const cssResult = [
           background-image: url(${images.itemKnightActive});   
       }
       `,
-    },
+  },
+  //LEVEL 5
+  {
+    html: `
+    <div class="app">
+        <section class="pond">
+            <div class="forefront">
+                ${renderItems(itemAboveLevel5)}
+            </div>
+            <div class="background">
+
+                <div class="row">
+                    <div class="behind row1 pinkArea">
+                    </div>
+                    <div class="behind row1 blueArea">
+                    </div>
+                    <div class="behind row1 orangeArea">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="behind row2 pinkArea">
+                    </div>
+                    <div class="behind row2 blueArea">
+                    </div>
+                    <div class="behind row2 violetArea">
+                    </div>
+                    <div class="behind row2 orangeArea">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="behind row3 pinkArea">
+                    </div>
+                    <div class="behind row3 violetArea">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="behind row4 greenArea">
+                    </div>
+                    <div class="behind row4 yellowArea">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="behind row5 biqueArea">
+                    </div>
+                    <div class="behind row5 greenArea">
+                    </div>
+                    <div class="behind row5 yellowArea">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+`,
+    css: `  
+                ${basicResultCss}
+                .forefront{
+                  display: flex;
+                  flex-wrap: wrap;
+                }
+                body{
+                    // background-image: url("https://img.informer.com/screenshots_mac/153/153297_2_4.png");
+                    background-image: url(${images.itemBackgroundFlower});
+                    background-position:contain;
+                }
+                .background{
+                  flex-wrap: wrap;
+
+                }
+                .row{
+                  width: 100%;
+                  display: flex;
+                }
+                .forefront { 
+                  flex-direction: row-reverve;
+                  align-items: flex-end;
+          
+                }
+          
+                .behind{
+                  flex: 1;
+                }
+                .pinkArea{
+                  background-color:pink;
+              
+              }
+              .blueArea{
+                  background-color: rgb(94, 158, 226);
+              
+              }
+              .orangeArea{
+                  background-color: orange;
+              
+              }
+              
+              .violetArea{
+                  background-color: violet;
+              
+              }
+              
+              .greenArea{
+                  background-color: green;
+              
+              
+              }
+              .yellowArea{
+                  background-color: yellow; 
+              }
+              
+              .biqueArea{
+                  background-color: antiquewhite;
+              
+              }
+                .above.green{
+                    background-image: url(${images.itemFlowerLily});   
+                }
+                .above.red{
+                    background-image: url(${images.itemFlowerCuc});   
+                }
+                .above.yellow{
+                    background-image: url(${images.itemFlowerRose});   
+                }
+                .above.pink{
+                  background-image: url(${images.itemFlowerf4});   
+              }
+              .above.violet{
+                background-image: url(${images.itemFlowerKhom});   
+            }
+            .above.red{
+              background-image: url(${images.itemFlowerRed});   
+          }
+            .above.orange{
+              background-image: url(${images.itemFlowerYellow});   
+          }
+            .above.blue{
+              background-image: url(${images.itemFlowerSun});   
+          }
+            
+                `,
+  },
 ];
-
-

@@ -56,107 +56,118 @@ app{
 
 //LEVEL1
 export const itemAboveLevel1 = [
-    {
-      container: "above-container",
-      children: [
-        "above green",
-        "above green",
-        "above green",
-        "above green",
-        "above green",
-        "above red",
-        "above red",
-        "above red",
-        "above red",
-        "above red",
-        "above yellow",
-        "above yellow",
-        "above yellow",
-        "above yellow",
-        "above yellow",
-      ],
-    },
-  ];
-  export const itemBehindLevel1 = [
-    {
-      container: "behind-container",
-      children: [
-        "behind green",
-        "behind green",
-        "behind green",
-        "behind green",
-        "behind green",
-        "behind red",
-        "behind red",
-        "behind red",
-        "behind red",
-        "behind red",
-        "behind yellow",
-        "behind yellow",
-        "behind yellow",
-        "behind yellow",
-        "behind yellow",
-      ],
-    },
-  ];
-//LEVEL2
-export const itemAboveLevel2 = [
-    {
-      container: "above-container",
-      children: [
-        "above green",
-        "above green",
-      ],
-    },
-  ];
-  export const itemBehindLevel2 = [
-    {
-      container: "behind-container",
-      children: [
-        "behind green",
-        "behind green",
-      ],
-    },
-  ];
-//LEVEL3
-export const itemAboveLevel3 = [
   {
     container: "above-container",
     children: [
       "above green",
+      "above green",
+      "above green",
+      "above green",
+      "above green",
+      "above red",
+      "above red",
+      "above red",
+      "above red",
       "above red",
       "above yellow",
+      "above yellow",
+      "above yellow",
+      "above yellow",
+      "above yellow",
     ],
+  },
+];
+export const itemBehindLevel1 = [
+  {
+    container: "behind-container",
+    children: [
+      "behind green",
+      "behind green",
+      "behind green",
+      "behind green",
+      "behind green",
+      "behind red",
+      "behind red",
+      "behind red",
+      "behind red",
+      "behind red",
+      "behind yellow",
+      "behind yellow",
+      "behind yellow",
+      "behind yellow",
+      "behind yellow",
+    ],
+  },
+];
+//LEVEL2
+export const itemAboveLevel2 = [
+  {
+    container: "above-container",
+    children: ["above green", "above green"],
+  },
+];
+export const itemBehindLevel2 = [
+  {
+    container: "behind-container",
+    children: ["behind green", "behind green"],
+  },
+];
+//LEVEL3
+export const itemAboveLevel3 = [
+  {
+    container: "above-container",
+    children: ["above green", "above red", "above yellow"],
   },
 ];
 export const itemBehindLevel3 = [
   {
     container: "behind-container",
-    children: [
-      "behind green",
-      "behind red",
-      "behind yellow",
-    ],
+    children: ["behind green", "behind red", "behind yellow"],
   },
 ];
 //LEVEL4
 export const itemAboveLevel4 = [
   {
     container: "above-container",
-    children: [
-      "above green",
-      "above red",
-      "above yellow",
-    ],
+    children: ["above green", "above red", "above yellow"],
   },
 ];
 export const itemBehindLevel4 = [
   {
     container: "behind-container",
+    children: ["behind green", "behind red", "behind yellow"],
+  },
+];
+//LEVEL5
+export const itemAboveLevel5 = [
+  {
+    container: "above-container",
     children: [
-      "behind green",
-      "behind red",
-      "behind yellow",
+      "above green",
+      "above green",
+      "above pink",
+      "above pink",
+      "above red",
+      "above green",
+      "above green",
+      "above pink",
+      "above yellow",
+      "above red",
+      "above green",
+      "above green",
+      "above yellow",
+      "above yellow",
+      "above yellow",
+      "above violet",
+      "above orange",
+      "above orange",
+      "above orange",
+      "above orange",
+      "above blue",
+      "above violet",
+      "above orange",
+      "above orange",
+      "above orange",
     ],
   },
 ];

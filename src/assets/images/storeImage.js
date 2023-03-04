@@ -41,5 +41,22 @@ const images = {
   itemSnake: "https://codingfantasy.com/gamesAssets/flexbox/bad/snake.gif",
   itemSpider: "https://codingfantasy.com/gamesAssets/flexbox/bad/spider.gif",
   itemGoblin: "https://codingfantasy.com/gamesAssets/flexbox/bad/goblin.gif",
+  itemBackgroundFlower: require("../../assets/images/dirt.svg").default,
+  itemFlowerLily:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/Bua2.svg",
+  itemFlowerCuc:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/ChrysanthemumLeucanthemum.svg",
+  itemFlowerf4:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/006.svg",
+  itemFlowerRose:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/Colored-Rose.svg",
+  itemFlowerKhom:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/flower_09.svg",
+  itemFlowerRed:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/flower_28.svg",
+  itemFlowerYellow:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/flower_29.svg",
+  itemFlowerSun:
+    "https://raw.githubusercontent.com/DungNVHE182057/ctv-v2-project/0fc5d1fd6e65ede1a8237f33db4a5442b6f33970/src/flower/image/SunnyFlower.svg",
 };
 export default images;
