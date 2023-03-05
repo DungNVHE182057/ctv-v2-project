@@ -130,15 +130,15 @@ function App() {
       />
       
       <Header />
-      <Guide forwardRef={guide} src={"http://127.0.0.1:5500/Guide/index.html"}/>
+
       <div className="app">
         <div className="wrapper">
           <div className="left-screen" >
             <Description srcDoc={desc} />
             <MyEditor onChange={setCss} code={toEditor} />
             <div className="change-level">
-              <button onClick={check}>Check</button>
-              <button onClick={nextLevel} disabled={nextLev}>Next</button>
+              <button className="btn-check" onClick={check}>Check</button>
+              <button className="btn-next" onClick={nextLevel} disabled={nextLev}>Next</button>
               <button  onClick={showGuide}>Guide</button>
             </div>
           </div>
@@ -147,7 +147,7 @@ function App() {
           </div>
         </div>
       </div>
-
+      <Guide forwardRef={guide} src={"http://127.0.0.1:5500/Guide/index.html"}/>
       <Footer />
     </div>
 

@@ -82,3 +82,15 @@ button{
   ::-webkit-scrollbar-thumb:hover {
     background: #478dff; 
   }
+.btn-check{
+  background-color: rgb(244, 31, 31, 0.5);
+  &:hover{
+    background-color: rgb(244, 31, 31, 1);
+}
+}
+.btn-next{
+  background-color: rgb(173, 255, 47,0.7);
+  &:hover{
+    background-color: rgb(173, 255, 47,1);
+  }
+}

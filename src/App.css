@@ -3,7 +3,9 @@
     justify-content: center;
     height: 50px;
 }
-
+.app{
+    margin-bottom: 50px;
+}
 @media (min-width: 740px) {
     .wrapper {
         display: flex;
