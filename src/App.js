@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { ToastMsg } from "./components/ScreenGame/ToastMsg";
+import Guide from "./components/Guide/Guide";
 
 function App() {
   const [css, setCss] = useState("");
@@ -129,16 +130,7 @@ function App() {
       />
       
       <Header />
-      <iframe 
-        src="http://127.0.0.1:5500/Guide/index.html"
-        ref={guide}
-        title="guide" 
-        className="guide"
-        width={"720px"}
-        height={"480px"}
-        position={"relative"}
-        dis
-        />
+      <Guide forwardRef={guide} src={"http://127.0.0.1:5500/Guide/index.html"}/>
       <div className="app">
         <div className="wrapper">
           <div className="left-screen" >
