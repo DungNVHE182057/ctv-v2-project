@@ -1,0 +1,29 @@
+.change-level {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+}
+.app{
+    margin-bottom: 50px;
+}
+@media (min-width: 740px) {
+    .wrapper {
+        display: flex;
+    }
+
+    .left-screen,
+    .right-screen {
+        width: 50%;
+    }
+
+    .left-screen {
+        padding-right: 1.6rem;
+    }
+}
+
+@media (max-width: 740px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
