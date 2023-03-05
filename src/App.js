@@ -20,6 +20,7 @@ function App() {
   const level = useRef(0);
   const streak = useRef(0);
   const frame = useRef(null);
+  const guide = useRef(null);
   const [nextLev, setNextLev] = useState(true);
 
   const handleOutput = () => {
@@ -97,6 +98,13 @@ function App() {
     return clearInterval(compile);
   }, [css, html, startCss]);
 
+  const showGuide = () => {
+      const thisGuide = guide.current;
+      if (thisGuide.style.display == 'none')
+      thisGuide.style.display = 'block';
+      else 
+      thisGuide.style.display = 'none';
+  }
   const nextLevel = () => {
     level.current = (level.current + 1) % Level.length;
     setHtml(Level[level.current].html);
@@ -119,7 +127,18 @@ function App() {
         draggable
         pauseOnHover
       />
+      
       <Header />
+      <iframe 
+        src="http://127.0.0.1:5500/Guide/index.html"
+        ref={guide}
+        title="guide" 
+        className="guide"
+        width={"720px"}
+        height={"480px"}
+        position={"relative"}
+        dis
+        />
       <div className="app">
         <div className="wrapper">
           <div className="left-screen" >
@@ -127,9 +146,8 @@ function App() {
             <MyEditor onChange={setCss} code={toEditor} />
             <div className="change-level">
               <button onClick={check}>Check</button>
-              <button onClick={nextLevel} disabled={nextLev}>
-                Next
-              </button>
+              <button onClick={nextLevel} disabled={nextLev}>Next</button>
+              <button  onClick={showGuide}>Guide</button>
             </div>
           </div>
           <div className="right-screen" >

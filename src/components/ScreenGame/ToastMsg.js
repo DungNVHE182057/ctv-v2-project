@@ -6,6 +6,6 @@ export const ToastMsg = {
     ],
     failure: [
         'Oups! Some of your code is not correct!',
-        'Ah sheet! Not again bro!'
+        'Ah sheet!!! Not again bro!'
     ]
 }
