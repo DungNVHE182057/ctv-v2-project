@@ -130,7 +130,7 @@ document.querySelector("#dialogueBox").addEventListener("click", (e) => {
     console.log(dialogue);
   } else {
     e.currentTarget.style.display = "none";
-    dialogue++;
+    dialogue = (dialogue + 1)%6 + 1;
     
     // dialogues[dialogue].initialize();
     // player.switchSprite('enterDoor')
