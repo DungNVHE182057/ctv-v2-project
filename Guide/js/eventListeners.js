@@ -61,42 +61,36 @@ window.addEventListener("keydown", (event) => {
           player.hitbox.position.y + player.hitbox.height >= npc.position.y &&
           player.hitbox.position.y <= npc.position.y + npc.height
         ) {
-          
           document.querySelector("#dialogueBox").innerHTML =
             "Well let's have some talk, shall we ?";
 
           document.querySelector("#dialogueBox").style.display = "block";
 
-          queue.push(() => {
-            document.querySelector('#dialogueBox').innerHTML = 'For lv1, use:' + "<br />" + 'justify-content: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content'
-                                                                               + "<br />" + 'align-items: https://developer.mozilla.org/en-US/docs/Web/CSS/align-items'
-                                                                               + "<br />" + 'flex-direction: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction'
-        })
-        
-        queue.push(() => {
-          document.querySelector('#dialogueBox').innerHTML = 'For lv2, use:' + "<br />" + 'justify-content: https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content'
-                                                                             + "<br />" + 'align-items: https://developer.mozilla.org/en-US/docs/Web/CSS/align-items'
-                                                                             
-        })
-        
-        queue.push(() => {
-          document.querySelector('#dialogueBox').innerHTML = 'For lv3, use:' + "<br />" + 'flex-direction: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction'
-                                                                             + "<br />" + 'flex-wrap: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap'
-                                                                             
-        })
-        
-        queue.push(() => {
-          document.querySelector('#dialogueBox').innerHTML = 'For lv4, use:' + "<br />" + 'Align-self: https://developer.mozilla.org/en-US/docs/Web/CSS/align-self'
-                                                                             + "<br />" + 'Order: https://developer.mozilla.org/en-US/docs/Web/CSS/order'
-                                                                             
-        })
-        
-        queue.push(() => {
-          document.querySelector('#dialogueBox').innerHTML = 'For lv5, use:' + "<br />" + 'flex-grow: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow'
-                                                                             + "<br />" + 'flex-basis: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis'
-                                                                             + "<br />" + 'flex: https://developer.mozilla.org/en-US/docs/Web/CSS/flex'
-        })
-        
+          //   queue.push(() => {
+          //     document.querySelector('#dialogueBox').innerHTML = " The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally)." + '<br\>' + "Tip: Use the align-items property to align the items vertically"
+          // })
+
+          // queue.push(() => {
+          //   document.querySelector('#dialogueBox').innerHTML = 'justify-content has 8 types in total: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; '
+
+          // })
+
+          // queue.push(() => {
+          //   document.querySelector('#dialogueBox').innerHTML = 'flex-start, flex-end, center is pretty obvious; positioning items at the beginning, the end and the center of the container respectively'
+          // })
+
+          // queue.push(() => {
+          //   document.querySelector('#dialogueBox').innerHTML = 'space-evenly and space-around, while may sound alike, function differently as items in the first one have space before, between and after them  '
+          //                                                       + '<br/>' + 'while items in space-evenly have equal space around them '
+          // })
+
+          // queue.push(() => {
+          //   document.querySelector('#dialogueBox').innerHTML = 'initial keeps the original value of the property, and inherit items get its property from its parent'
+          // })
+
+          // queue.push(() => {
+          //   document.querySelector('#dialogueBox').innerHTML = "That's all for justify-content. Try it yourself !"
+          // })
           // if (
           //   (document.querySelector("#dialogueBox").style.display = "block" && queue.length > 0)
           // ) {
@@ -106,9 +100,14 @@ window.addEventListener("keydown", (event) => {
           // queue[0]()
           // queue.shift()
 
+          
+
           player.velocity.x = 0;
           player.velocity.y = 0;
           player.preventInput = true;
+          // if(dialogues[dialogue])
+          dialogues[dialogue].initialize();
+          
           player.switchSprite("idleRight.png");
           // player.switchSprite('enterDoor')
           // door.play()
@@ -119,20 +118,21 @@ window.addEventListener("keydown", (event) => {
 });
 
 var queue = [];
-let i = Math.floor(Math.random() * queue.length)
+let i = Math.floor(Math.random() * queue.length);
 
 document.querySelector("#dialogueBox").addEventListener("click", (e) => {
   
-
-
-
 
   if (queue.length > 0) {
     queue[0]();
     queue.shift();
     console.log(queue.length);
+    console.log(dialogue);
   } else {
     e.currentTarget.style.display = "none";
+    dialogue++;
+    
+    // dialogues[dialogue].initialize();
     // player.switchSprite('enterDoor')
     // door.play()
   }
