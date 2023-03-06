@@ -5,7 +5,7 @@ const cx = classNames.bind(styles)
 
 function Header() {
     return (  
-        <h1 className={cx('game-name')}>Flexbox Game</h1>
+        <h1  className={cx('game-name')}>Flexbox Game</h1>
     );
 }
 

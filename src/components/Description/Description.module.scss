@@ -1,6 +1,11 @@
 .descript{
-    border: none;
-    width: 100%;
-    height: 42%;
+  border: none;
+  width: 100%;
+  height: 43%;
+}
+@media (max-width: 740px) {
+  .descript{
+    height: 38vh;
+    margin-top: 30px;
   }
- 
+}
