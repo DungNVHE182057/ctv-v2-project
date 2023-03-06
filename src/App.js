@@ -117,7 +117,7 @@ function App() {
   const showGuide = () => {
     const thisGuide = guide.current;
     console.log(guide.current);
-    if (thisGuide.style.display == "none") thisGuide.style.display = "block";
+    if (thisGuide.style.display == "none" || thisGuide.style.display == '') thisGuide.style.display = "block";
     else thisGuide.style.display = "none";
   };
   const nextLevel = () => {
@@ -156,7 +156,7 @@ function App() {
           </div>
           <Guide
             forwardRef={guide}
-            src={"http://127.0.0.1:5500/Guide/index.html"}
+            src={"http://127.0.0.1:5501/Guide/index.html"}
           />
         </div>
         <div className="change-level">

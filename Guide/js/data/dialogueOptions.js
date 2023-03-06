@@ -7,7 +7,8 @@ let dialogues = {
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'justify-content has 8 types in total: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; ' 
+              document.querySelector('#dialogueBox').innerHTML = 'justify-content has 8 types in total:' 
+              + '<ul style="display: grid; grid-template-columns: repeat(3,1fr)"><li>flex-start</li><li>flex-end<li>center</li><li>space-between</li><li>space-around</li><li>space-evenly</li><li>initial</li><li>inherit</li> </ul>'
                                                                                  
             })
             
@@ -47,7 +48,7 @@ let dialogues = {
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = "That's all for justify-content. Try it yourself !"
+              document.querySelector('#dialogueBox').innerHTML = "That's all for align-items. Try it yourself !"
             })
         }
     },
@@ -59,24 +60,16 @@ let dialogues = {
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'flex-direction has the following syntax: flex-direction: row|row-reverse|column|column-reverse|initial|inherit' 
+              document.querySelector('#dialogueBox').innerHTML = 'flex-direction has 4 main following syntax:' + '<br/>' + '<ul style="display: grid; grid-template-columns: repeat(2,1fr)"><li>row</li><li>column</li><li>row-reverse</li><li>column-reverse</li></ul>'
                                                                                  
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'vjknjknsvbrv'                                                 
-            })
-            
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'dddddd'                                                   
-            })
-            
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'sss'
+              document.querySelector('#dialogueBox').innerHTML = "row and column display items vertically and horizontally, while row-reverse and column-reverse do the same thing, but the items' are reversed. "                                                 
             })
     
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = "aaaaaaa"
+              document.querySelector('#dialogueBox').innerHTML = "that's all for flex-direction. Try it yourself!"
             })
         }
     },
@@ -84,29 +77,16 @@ let dialogues = {
     4: {
         initialize: () => {
             queue.push(() => {
-                document.querySelector('#dialogueBox').innerHTML = " The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally)." + '<br\>' + "Tip: Use the align-items property to align the items vertically"
+                document.querySelector('#dialogueBox').innerHTML = " The flex-wrap property specifies whether the flexible items should wrap or not."
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'justify-content has 8 types in total: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; ' 
+              document.querySelector('#dialogueBox').innerHTML = " flex-wrap syntax are the following: " + '<br/>' + '<ul style="display: grid; grid-template-columns: repeat(3,1fr)"><li>nowrap</li><li>wrap</li><li>wrap-reverse</li></ul>'
                                                                                  
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'flex-start, flex-end, center is pretty obvious; positioning items at the beginning, the end and the center of the container respectively'                                                 
-            })
-            
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'space-evenly and space-around, while may sound alike, function differently as items in the first one have space before, between and after them  ' 
-                                                                  + '<br/>' + 'while items in space-evenly have equal space around them '                                                   
-            })
-            
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'initial keeps the original value of the property, and inherit items get its property from its parent'
-            })
-    
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = "That's all for justify-content. Try it yourself !"
+              document.querySelector('#dialogueBox').innerHTML = "That's all for flex-wrap. Try it yourself !"
             })
         }
     },
@@ -114,29 +94,28 @@ let dialogues = {
     5: {
         initialize: () => {
             queue.push(() => {
-                document.querySelector('#dialogueBox').innerHTML = " The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally)." + '<br\>' + "Tip: Use the align-items property to align the items vertically"
+                document.querySelector('#dialogueBox').innerHTML = " The align-self property specifies the default alignment for items inside a flexbox or grid container."
+                + '<br/>' + 'In some way, this is similar to align-items, the only difference is that while align-items control the alignment of' + '<b> all items</b>'
+                          + ', align-self control the alignment of an individual flex item on the cross axis'
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'justify-content has 8 types in total: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; ' 
+              document.querySelector('#dialogueBox').innerHTML = 'align-self has 8 types in total:' 
+              + '<br/>' + '<ul style="display: grid; grid-template-columns: repeat(3,1fr)"><li>auto|</li><li>stretch<li>center</li><li>flex-start</li><li>flex-end</li><li>baseline</li></ul>'
                                                                                  
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'flex-start, flex-end, center is pretty obvious; positioning items at the beginning, the end and the center of the container respectively'                                                 
+              document.querySelector('#dialogueBox').innerHTML = 'stretch helps positioning element to fit the container, while center positions element to the center of the container'                                                 
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'space-evenly and space-around, while may sound alike, function differently as items in the first one have space before, between and after them  ' 
-                                                                  + '<br/>' + 'while items in space-evenly have equal space around them '                                                   
+              document.querySelector('#dialogueBox').innerHTML = 'flex-start, flex-end and baseline position the element at the beginning, the baseline of the container respectively,'                                               
             })
             
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'initial keeps the original value of the property, and inherit items get its property from its parent'
-            })
     
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = "That's all for justify-content. Try it yourself !"
+              document.querySelector('#dialogueBox').innerHTML = "That's all for align-self. Try it yourself !"
             })
         }
     },
@@ -144,29 +123,21 @@ let dialogues = {
     6: {
         initialize: () => {
             queue.push(() => {
-                document.querySelector('#dialogueBox').innerHTML = " The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally)." + '<br\>' + "Tip: Use the align-items property to align the items vertically"
+                document.querySelector('#dialogueBox').innerHTML = " The order property specifies the order of a flexible item relative to the rest of the flexible items inside the same container."
             })
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'justify-content has 8 types in total: flex-start|flex-end|center|space-between|space-around|space-evenly|initial|inherit; ' 
+              document.querySelector('#dialogueBox').innerHTML = 'The most usual syntax for this is order: number ' 
                                                                                  
             })
+
             
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'flex-start, flex-end, center is pretty obvious; positioning items at the beginning, the end and the center of the container respectively'                                                 
-            })
-            
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'space-evenly and space-around, while may sound alike, function differently as items in the first one have space before, between and after them  ' 
-                                                                  + '<br/>' + 'while items in space-evenly have equal space around them '                                                   
-            })
-            
-            queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = 'initial keeps the original value of the property, and inherit items get its property from its parent'
+              document.querySelector('#dialogueBox').innerHTML = 'With the default value 0, it specifies the order for the flexible item'
             })
     
             queue.push(() => {
-              document.querySelector('#dialogueBox').innerHTML = "That's all for justify-content. Try it yourself !"
+              document.querySelector('#dialogueBox').innerHTML = "That's all for order. Try it yourself !"
             })
         }
     }
