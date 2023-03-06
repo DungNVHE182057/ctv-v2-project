@@ -22,6 +22,7 @@ function App() {
   const streak = useRef(0);
   const frame = useRef(null);
   const guide = useRef(null);
+  const guideButton = useRef(null)
   const [nextLev, setNextLev] = useState(true);
 
   const handleOutput = () => {
@@ -116,9 +117,10 @@ function App() {
 
   const showGuide = () => {
     const thisGuide = guide.current;
+    const thisGuideButton = guideButton.current;
     console.log(guide.current);
-    if (thisGuide.style.display == "none" || thisGuide.style.display == '') thisGuide.style.display = "block";
-    else thisGuide.style.display = "none";
+    if (thisGuide.style.display == "none" || thisGuide.style.display == '') { thisGuide.style.display = "block"; thisGuideButton.innerHTML = "Close"}
+    else { thisGuide.style.display = "none"; thisGuideButton.innerHTML = "Guide"}
   };
   const nextLevel = () => {
     level.current = (level.current + 1) % Level.length;
@@ -156,17 +158,13 @@ function App() {
           </div>
           <Guide
             forwardRef={guide}
-            src={"http://127.0.0.1:5501/Guide/index.html"}
+            src={"/Guide/index.html"}
           />
         </div>
         <div className="change-level">
-          <button className="btn-check" onClick={check}>
-            Check
-          </button>
-          <button className="btn-next" onClick={nextLevel} disabled={nextLev}>
-            Next
-          </button>
-          <button className="btn-guide-mobile" onClick={showGuide}>Guide</button>
+          <button className="btn-check" onClick={check}>Check</button>
+          <button className="btn-next" onClick={nextLevel} disabled={nextLev}>Next</button>
+          <button className="btn-guide-mobile" onClick={showGuide} ref={guideButton}>Guide</button>
         </div>
       </div>
       <Footer />
