@@ -83,7 +83,7 @@ const player = new Player({
   },
 });
 
-let level = 1;
+let level = 2;
 let levels = {
   1: {
     init: () => {
@@ -172,7 +172,7 @@ let levels = {
             x: 200,
             y: 275,
           },
-          imageSrc: "./img/doorOpen.png",
+          // imageSrc: "./img/doorOpen.png",
           frameRate: 5,
           frameBuffer: 5,
           loop: false,

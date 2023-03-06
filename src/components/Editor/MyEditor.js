@@ -1,17 +1,32 @@
 import Editor from "@monaco-editor/react";
-const MyEditor = ({onChange, code}) => {
+import React, {useRef} from "react";
+const MyEditor = ({onChange, defaultCode}) => {
+    const editorRef = useRef(null)
     const handleValueChange = (value) => {
         onChange(value);
     }
+
+    const handleEditorDidMount = (editor, monaco) => {
+        editorRef.current = editor
+    }
+
+    const reset = () => {
+        editorRef.current.setValue(defaultCode)
+    }
+    
     return (
-        <Editor
-            height={"55%"}
-            width={"100%"}
-            theme={"vs-dark"}
-            language={"css"}
-            value={code}
-            onChange={handleValueChange}
-        />
+        <div width={"100%"}>
+            <button onClick={reset} style={{marginBottom : "10px"}}>Reset</button>
+            <Editor
+                height={"200px"}
+                width={"100%"}
+                theme={"vs-dark"}
+                language={"css"}
+                value={defaultCode}
+                onChange={handleValueChange}
+                onMount={handleEditorDidMount}
+            />
+        </div>
     )
 }
 export default MyEditor;
