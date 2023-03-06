@@ -120,14 +120,10 @@ function App() {
   const showGuide = () => {
     const thisGuide = guide.current;
     const thisGuideButton = guideButton.current;
+    console.log(guide.current);
     // eslint-disable-next-line
-    if (thisGuide.style.display == "none" || thisGuide.style.display == "") {
-      thisGuide.style.display = "block";
-      thisGuideButton.innerHTML = "Close";
-    } else {
-      thisGuide.style.display = "none";
-      thisGuideButton.innerHTML = "Guide";
-    }
+    if (thisGuide.style.display == "none" || thisGuide.style.display == "") { thisGuide.style.display = "block"; thisGuideButton.innerHTML = "Close"}
+    else { thisGuide.style.display = "none"; thisGuideButton.innerHTML = "Guide"}
   };
   const nextLevel = () => {
     level.current = (level.current + 1) % Level.length;
@@ -181,12 +177,15 @@ function App() {
         <div className="wrapper">
           <div className="left-screen">
             <Description srcDoc={desc} />
-            <MyEditor onChange={setCss} code={toEditor} />
+              <MyEditor onChange={setCss} defaultCode={toEditor} />
           </div>
           <div className="right-screen">
             <MyIframe srcDoc={srcDoc} forwardRef={frame} />
           </div>
-          <Guide forwardRef={guide} src={"./Guide/index.html"} />
+          <Guide
+            forwardRef={guide}
+            src={"/Guide/index.html"}
+          />
         </div>
         <div className="change-level">
           <button className="btn-check" onClick={check}>
