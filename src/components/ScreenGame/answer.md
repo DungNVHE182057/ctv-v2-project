@@ -1,26 +1,26 @@
 # LEVEL 1
 /* task #1 */
-.forefront { 
+.sceneScreen { 
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row-reverse;
 }
 # LEVEL 2
 /* task #2 */
-.forefront { 
+.sceneScreen { 
     justify-content: space-between;
     align-items: flex-end;
 }
 # LEVEL 3
 /* task #3 */
-.forefront { 
+.sceneScreen { 
     flex-direction: column;
     flex-wrap: wrap;
 }
 
 # LEVEL 4
 /* task #4 */
-  .forefront { 
+  .sceneScreen { 
       display: flex;
   }
   /*css this class*/

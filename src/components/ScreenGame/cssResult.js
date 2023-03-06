@@ -30,7 +30,7 @@ export const cssResult = [
     html: `
     <div class="app">
     <section class="pond">
-        <div class="forefront">
+        <div class="forefront sceneScreen">
             ${renderItems(itemAboveLevel1)}
         </div>
         <div class="background">
@@ -79,7 +79,7 @@ export const cssResult = [
     html: `
     <div class="app">
     <section class="pond">
-        <div class="forefront">
+        <div class="forefront sceneScreen">
             ${renderItems(itemAboveLevel2)}
         </div>
         <div class="background">
@@ -119,7 +119,7 @@ export const cssResult = [
     html: `
         <div class="app">
         <section class="pond">
-            <div class="forefront">
+            <div class="forefront sceneScreen">
                 ${renderItems(itemAboveLevel3)}
             </div>
             <div class="background">
@@ -176,7 +176,7 @@ export const cssResult = [
     html: `
       <div class="app">
       <section class="pond">
-          <div class="forefront">
+          <div class="forefront sceneScreen">
               ${renderItems(itemAboveLevel4)}
           </div>
           <div class="background">
@@ -241,7 +241,7 @@ export const cssResult = [
     html: `
     <div class="app">
         <section class="pond">
-            <div class="forefront">
+            <div class="forefront sceneScreen">
                 ${renderItems(itemAboveLevel5)}
             </div>
             <div class="background">

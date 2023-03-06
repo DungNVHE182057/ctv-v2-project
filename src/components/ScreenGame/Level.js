@@ -15,7 +15,8 @@ export const Level = [
         </html>`,
     css: `${cssResult[2].css}`,
     toEditor: `/* task #1 */
-.forefront { 
+.sceneScreen { 
+  display: flex;
 
 }
 `,
@@ -38,7 +39,8 @@ export const Level = [
         </html>`,
     css: `${cssResult[1].css}`,
     toEditor: `/* task #2 */
-.forefront { 
+.sceneScreen { 
+  display: flex;
 
 }
 `,
@@ -63,8 +65,9 @@ export const Level = [
         </html>`,
     css: `${cssResult[0].css}`,
     toEditor: `/* task #3 */
-.forefront { 
-
+.sceneScreen { 
+  display: flex;
+  
 }
 `,
     expect: [
@@ -89,7 +92,7 @@ export const Level = [
               </html>`,
     css: `${cssResult[3].css}`,
     toEditor: `/* task #4 */
-  .forefront { 
+  .sceneScreen { 
       display: flex;
   }
   /*css this class*/
