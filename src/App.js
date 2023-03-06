@@ -156,7 +156,7 @@ function App() {
           </div>
           <Guide
             forwardRef={guide}
-            src={"http://127.0.0.1:5501/Guide/index.html"}
+            src={"./Guide/index.html"}
           />
         </div>
         <div className="change-level">
