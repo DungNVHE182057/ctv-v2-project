@@ -22,8 +22,9 @@ function App() {
   const streak = useRef(0);
   const frame = useRef(null);
   const guide = useRef(null);
-  const guideButton = useRef(null)
+  const guideButton = useRef(null);
   const [nextLev, setNextLev] = useState(true);
+  const [prevLev, setPrevLev] = useState(true);
 
   const handleOutput = () => {
     const data = Level[level.current];
@@ -39,6 +40,7 @@ function App() {
       for (let j = 0; j < attribute.length; ++j) {
         // eslint-disable-next-line
         if (anchor == undefined) return true;
+        // eslint-disable-next-line
         if (anchor.style.getPropertyValue(attribute[j]) != value[j])
           return true;
       }
@@ -72,8 +74,8 @@ function App() {
 
   const check = () => {
     const output = handleOutput();
+    checkNextButton(output);
     setNextLev(output);
-    console.log(streak.current);
     if (output) {
       if (streak.current > 0) streak.current = 0;
       else streak.current = streak.current - 1;
@@ -118,9 +120,14 @@ function App() {
   const showGuide = () => {
     const thisGuide = guide.current;
     const thisGuideButton = guideButton.current;
-    console.log(guide.current);
-    if (thisGuide.style.display == "none" || thisGuide.style.display == '') { thisGuide.style.display = "block"; thisGuideButton.innerHTML = "Close"}
-    else { thisGuide.style.display = "none"; thisGuideButton.innerHTML = "Guide"}
+    // eslint-disable-next-line
+    if (thisGuide.style.display == "none" || thisGuide.style.display == "") {
+      thisGuide.style.display = "block";
+      thisGuideButton.innerHTML = "Close";
+    } else {
+      thisGuide.style.display = "none";
+      thisGuideButton.innerHTML = "Guide";
+    }
   };
   const nextLevel = () => {
     level.current = (level.current + 1) % Level.length;
@@ -130,7 +137,30 @@ function App() {
     setToEditor(Level[level.current].toEditor);
     setNextLev(true);
   };
+  const prevLevel = () => {
+    level.current = (level.current - 1);
+    setHtml(Level[level.current].html);
+    setDesc(Level[level.current].desc);
+    setStartCss(Level[level.current].css);
+    setToEditor(Level[level.current].toEditor);
+    setPrevLev(true);
+  };
 
+  const checkNextButton = (output) => {
+    const button = document.getElementsByClassName("btn-next")[0];
+    if (output) {
+      button.style.display = "none";
+    } else {
+      button.style.display = "block";
+      button.style.color = "#fff";
+    }
+  };
+
+  const handleButtonNextClick = () => {
+    nextLevel();
+    const button = document.getElementsByClassName("btn-next")[0];
+    button.style.display = "none";
+  };
   return (
     <div id="landing">
       <ToastContainer
@@ -156,15 +186,27 @@ function App() {
           <div className="right-screen">
             <MyIframe srcDoc={srcDoc} forwardRef={frame} />
           </div>
-          <Guide
-            forwardRef={guide}
-            src={"./Guide/index.html"}
-          />
+          <Guide forwardRef={guide} src={"./Guide/index.html"} />
         </div>
         <div className="change-level">
-          <button className="btn-check" onClick={check}>Check</button>
-          <button className="btn-next" onClick={nextLevel} disabled={nextLev}>Next</button>
-          <button className="btn-guide-mobile" onClick={showGuide} ref={guideButton}>Guide</button>
+          <button className="btn-check" onClick={check}>
+            Check
+          </button>
+          <button
+            style={{display:"none"}}
+            className="btn-next "
+            onClick={handleButtonNextClick}
+            disabled={nextLev}
+          >
+            Next
+          </button>
+          <button
+            className="btn-guide-mobile"
+            onClick={showGuide}
+            ref={guideButton}
+          >
+            Guide
+          </button>
         </div>
       </div>
       <Footer />
