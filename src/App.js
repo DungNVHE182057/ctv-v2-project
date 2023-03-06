@@ -35,8 +35,8 @@ function App() {
         ];
       const attribute = data.expect[i].atb;
       const value = data.expect[i].val;
-      for (let j = 0; j < attribute.length; ++j){
-      // eslint-disable-next-line
+      for (let j = 0; j < attribute.length; ++j) {
+        // eslint-disable-next-line
         if (anchor == undefined) return true;
         if (anchor.style.getPropertyValue(attribute[j]) != value[j])
           return true;
@@ -70,18 +70,33 @@ function App() {
   };
 
   const check = () => {
-    const output = handleOutput()
+    const output = handleOutput();
     setNextLev(output);
-    console.log(streak.current)
+    console.log(streak.current);
     if (output) {
       if (streak.current > 0) streak.current = 0;
       else streak.current = streak.current - 1;
-      showErrorToast(ToastMsg.failure[Math.round((streak.current < -1) ? Math.random()*ToastMsg.failure.length : Math.random())]);
-    }
-    else {
+      showErrorToast(
+        ToastMsg.failure[
+          Math.round(
+            streak.current < -1
+              ? Math.random() * ToastMsg.failure.length
+              : Math.random()
+          )
+        ]
+      );
+    } else {
       if (streak.current < 0) streak.current = 0;
       else streak.current = streak.current + 1;
-      showSuccessToast(ToastMsg.successes[Math.round((streak.current > 1) ? Math.random()*ToastMsg.successes.length : Math.random())]);
+      showSuccessToast(
+        ToastMsg.successes[
+          Math.round(
+            streak.current > 1
+              ? Math.random() * ToastMsg.successes.length
+              : Math.random()
+          )
+        ]
+      );
     }
   };
 
@@ -100,12 +115,11 @@ function App() {
   }, [css, html, startCss]);
 
   const showGuide = () => {
-      const thisGuide = guide.current;
-      if (thisGuide.style.display == 'none')
-      thisGuide.style.display = 'block';
-      else 
-      thisGuide.style.display = 'none';
-  }
+    const thisGuide = guide.current;
+    console.log(guide.current);
+    if (thisGuide.style.display == "none") thisGuide.style.display = "block";
+    else thisGuide.style.display = "none";
+  };
   const nextLevel = () => {
     level.current = (level.current + 1) % Level.length;
     setHtml(Level[level.current].html);
@@ -128,32 +142,36 @@ function App() {
         draggable
         pauseOnHover
       />
-      
+
       <Header />
 
       <div className="app">
         <div className="wrapper">
-          <div className="left-screen" >
+          <div className="left-screen">
             <Description srcDoc={desc} />
             <MyEditor onChange={setCss} code={toEditor} />
-            <div className="change-level">
-              <button className="btn-check" onClick={check}>Check</button>
-              <button className="btn-next" onClick={nextLevel} disabled={nextLev}>Next</button>
-              <button  onClick={showGuide}>Guide</button>
-            </div>
           </div>
-          <div className="right-screen" >
+          <div className="right-screen">
             <MyIframe srcDoc={srcDoc} forwardRef={frame} />
           </div>
+          <Guide
+            forwardRef={guide}
+            src={"http://127.0.0.1:5500/Guide/index.html"}
+          />
+        </div>
+        <div className="change-level">
+          <button className="btn-check" onClick={check}>
+            Check
+          </button>
+          <button className="btn-next" onClick={nextLevel} disabled={nextLev}>
+            Next
+          </button>
+          <button className="btn-guide-mobile" onClick={showGuide}>Guide</button>
         </div>
       </div>
-      <Guide forwardRef={guide} src={"http://127.0.0.1:5501/Guide/index.html"}/>
       <Footer />
     </div>
-
   );
-
-
 }
 
 export default App;
