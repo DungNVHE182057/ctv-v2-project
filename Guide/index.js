@@ -1,6 +1,25 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
+// (function() {
+  
+//   function start() {
+//      screen.addEventListener('resize', fitCanvas, false);
+//      fitCanvas();    // initial canvas border
+//   }
+//   function resize() {
+//      c.strokeStyle = 'red';
+//      c.lineWidth = '10'
+//      c.strokeRect(0, 0, screen.innerWidth, screen.innerHeight);
+//   }
+//   function fitCanvas() {
+//      canvas.width = screen.innerWidth;
+//      canvas.height = screen.innerHeight;
+//      resize();
+//   }
+// })();
+
+
 canvas.width = 64 * 16; // 1024
 canvas.height = 64 * 9; // 576
 
@@ -38,18 +57,19 @@ const player = new Player({
       imageSrc: "./img/king/runLeft.png",
     },
     enterDoor: {
-      frameRate: 8,
-      frameBuffer: 8,
+      frameRate: 10,
+      frameBuffer: 6,
       loop: false,
-      imageSrc: "./img/king/enterDoor.png",
+      imageSrc: "./img/king/idle.png",
       onComplete: () => {
         console.log("completed animation");
         gsap.to(overlay, {
           opacity: 1,
           onComplete: () => {
             level++;
-
-            if (level === 7) level = 1;
+            
+            
+            if (level === 3) level = 1;
             levels[level].init();
             player.switchSprite("idleRight");
             player.preventInput = false;
@@ -67,26 +87,27 @@ let level = 1;
 let levels = {
   1: {
     init: () => {
-      parsedCollisions = collisionsLevel1.parse2D();
+      parsedCollisions = collisionsLevel2.parse2D();
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
       if (player.currentAnimation) player.currentAnimation.isActive = false;
+
 
       background = new Sprite({
         position: {
           x: 0,
           y: 0,
         },
-        imageSrc: "./img/backgroundLevel1a.png",
+        imageSrc: "./img/backgroundLevel1.png",
       });
 
       doors = [
         new Sprite({
           position: {
-            x: 1000,
-            y: 1000,
+            x: 767,
+            y: 275,
           },
-          // imageSrc: './img/doorOpen.png',
+          imageSrc: './img/doorOpen.png',
           frameRate: 5,
           frameBuffer: 5,
           loop: false,
@@ -100,7 +121,7 @@ let levels = {
             x: 580,
             y: 270,
           },
-          imageSrc: "./img/npc/idleLeft.png",
+          // imageSrc: "./img/npc/idleLeft.png",
           frameRate: 9,
           frameBuffer: 10,
           loop: true,
@@ -108,31 +129,22 @@ let levels = {
         }),
       ];
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Hello Traveler'
-        queue.shift()
-  })
+  //       queue.push(() => {
+  //       document.querySelector('#dialogueBox').innerHTML = 'Hello Traveler'
+  //       // queue.shift()
+  // })
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Welcome to the House'
-        queue.shift()
-  })
+  //       queue.push(() => {
+  //       document.querySelector('#dialogueBox').innerHTML = 'Welcome to the House'
+  //       // queue.shift()
+  // })
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Let me show you around'
-        queue.shift()
-  })
+  //       queue.push(() => {
+  //       document.querySelector('#dialogueBox').innerHTML = 'Let me show you around'
+  //       // queue.shift()
+  // })
 
-      // queue.push(() => {
-      //   document.querySelector('#dialogueBox').innerHTML = 'smnfbvjhev'
-      // })
       
-      // queue.push(() => {
-      //   document.querySelector('#dialogueBox').innerHTML = 'kjhbsdvnise'
-      // })
-      // queue.push(() => {
-      //   document.querySelector('#dialogueBox').innerHTML = 'ytaxwsv'
-      // })
     },
   },
   2: {
@@ -140,6 +152,9 @@ let levels = {
       parsedCollisions = collisionsLevel2.parse2D();
       collisionBlocks = parsedCollisions.createObjectsFrom2D();
       player.collisionBlocks = collisionBlocks;
+
+      player.position.x = 200
+      player.position.y = 200
 
       if (player.currentAnimation) player.currentAnimation.isActive = false;
 
@@ -154,8 +169,8 @@ let levels = {
       doors = [
         new Sprite({
           position: {
-            x: 767,
-            y: 270,
+            x: 200,
+            y: 275,
           },
           imageSrc: "./img/doorOpen.png",
           frameRate: 5,
@@ -168,7 +183,7 @@ let levels = {
       npcs = [
         new Sprite({
           position: {
-            x: 580,
+            x: 680,
             y: 270,
           },
           imageSrc: "./img/npc/idleLeft.png",
@@ -180,226 +195,229 @@ let levels = {
       ];
 
       
+
+      
     },
   },
-  3: {
-    init: () => {
-      parsedCollisions = collisionsLevel3.parse2D();
-      collisionBlocks = parsedCollisions.createObjectsFrom2D();
-      player.collisionBlocks = collisionBlocks;
-      player.position.x = 80;
-      player.position.y = 40;
-      if (player.currentAnimation) player.currentAnimation.isActive = false;
+//   3: {
+//     init: () => {
+//       parsedCollisions = collisionsLevel3.parse2D();
+//       collisionBlocks = parsedCollisions.createObjectsFrom2D();
+//       player.collisionBlocks = collisionBlocks;
+//       player.position.x = 80;
+//       player.position.y = 40;
+//       if (player.currentAnimation) player.currentAnimation.isActive = false;
 
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: "./img/backgroundLevel2a.png",
-      });
+//       background = new Sprite({
+//         position: {
+//           x: 0,
+//           y: 0,
+//         },
+//         imageSrc: "./img/backgroundLevel2a.png",
+//       });
 
-      doors = [
-        new Sprite({
-          position: {
-            x: 2000,
-            y: 2000,
-          },
-          imageSrc: "./img/doorOpen.png",
-          frameRate: 5,
-          frameBuffer: 5,
-          loop: false,
-          autoplay: false,
-        }),
-      ];
+//       doors = [
+//         new Sprite({
+//           position: {
+//             x: 2000,
+//             y: 2000,
+//           },
+//           imageSrc: "./img/doorOpen.png",
+//           frameRate: 5,
+//           frameBuffer: 5,
+//           loop: false,
+//           autoplay: false,
+//         }),
+//       ];
 
-      npcs = [
-        new Sprite({
-          position: {
-            x: 600,
-            y: 400,
-          },
-          imageSrc: "./img/npc/idleLeft.png",
-          frameRate: 9,
-          frameBuffer: 10,
-          loop: true,
-          autoplay: true,
-        }),
-      ];
+//       npcs = [
+//         new Sprite({
+//           position: {
+//             x: 600,
+//             y: 400,
+//           },
+//           imageSrc: "./img/npc/idleLeft.png",
+//           frameRate: 9,
+//           frameBuffer: 10,
+//           loop: true,
+//           autoplay: true,
+//         }),
+//       ];
 
-      queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Hello Traveler'
-        queue.shift()
-  })
+//       if(queue.length != 0){
+//         queue.shift()
+//       }
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Welcome to the House'
-        queue.shift()
-  })
+//       queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'Hello Traveler'
+//   })
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'This is the Dining Hall'
-        queue.shift()
-})
+//         queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'Welcome to the House'
+//   })
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Let me show you around'
-        queue.shift()
-  })
-    },
-  },
+//         queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'This is the Dining Hall'
+// })
 
-  4: {
-    init: () => {
-      parsedCollisions = collisionsLevel4.parse2D();
-      collisionBlocks = parsedCollisions.createObjectsFrom2D();
-      player.collisionBlocks = collisionBlocks;
-      if (player.currentAnimation) player.currentAnimation.isActive = false;
+//         queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'Let me show you around'
+//   })
+//     },
+//   },
 
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: "./img/backgroundLevel2.png",
-      });
+//   4: {
+//     init: () => {
+//       parsedCollisions = collisionsLevel4.parse2D();
+//       collisionBlocks = parsedCollisions.createObjectsFrom2D();
+//       player.collisionBlocks = collisionBlocks;
+//       if (player.currentAnimation) player.currentAnimation.isActive = false;
 
-      doors = [
-        new Sprite({
-          position: {
-            x: 550,
-            y: 401,
-          },
-          imageSrc: "./img/doorOpen.png",
-          frameRate: 5,
-          frameBuffer: 5,
-          loop: false,
-          autoplay: false,
-        }),
-      ];
+//       background = new Sprite({
+//         position: {
+//           x: 0,
+//           y: 0,
+//         },
+//         imageSrc: "./img/backgroundLevel2.png",
+//       });
 
-      npcs = [
-        new Sprite({
-          position: {
-            x: 300,
-            y: 335,
-          },
-          imageSrc: "./img/npc/idleRight.png",
-          frameRate: 9,
-          frameBuffer: 10,
-          loop: true,
-          autoplay: true,
-        }),
-      ];
-    },
-  },
+//       doors = [
+//         new Sprite({
+//           position: {
+//             x: 550,
+//             y: 401,
+//           },
+//           imageSrc: "./img/doorOpen.png",
+//           frameRate: 5,
+//           frameBuffer: 5,
+//           loop: false,
+//           autoplay: false,
+//         }),
+//       ];
 
-  5: {
-    init: () => {
-      parsedCollisions = collisionsLevel5.parse2D();
-      collisionBlocks = parsedCollisions.createObjectsFrom2D();
-      player.collisionBlocks = collisionBlocks;
-      player.position.x = 750;
-      player.position.y = 230;
-      if (player.currentAnimation) player.currentAnimation.isActive = false;
+//       npcs = [
+//         new Sprite({
+//           position: {
+//             x: 300,
+//             y: 335,
+//           },
+//           imageSrc: "./img/npc/idleRight.png",
+//           frameRate: 9,
+//           frameBuffer: 10,
+//           loop: true,
+//           autoplay: true,
+//         }),
+//       ];
+//     },
+//   },
 
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: "./img/backgroundLevel3a.png",
-      });
+//   5: {
+//     init: () => {
+//       parsedCollisions = collisionsLevel5.parse2D();
+//       collisionBlocks = parsedCollisions.createObjectsFrom2D();
+//       player.collisionBlocks = collisionBlocks;
+//       player.position.x = 750;
+//       player.position.y = 230;
+//       if (player.currentAnimation) player.currentAnimation.isActive = false;
 
-      doors = [
-        new Sprite({
-          position: {
-            x: 2000,
-            y: 2000,
-          },
-          imageSrc: "./img/doorOpen.png",
-          frameRate: 5,
-          frameBuffer: 5,
-          loop: false,
-          autoplay: false,
-        }),
-      ];
+//       background = new Sprite({
+//         position: {
+//           x: 0,
+//           y: 0,
+//         },
+//         imageSrc: "./img/backgroundLevel3a.png",
+//       });
 
-      npcs = [
-        new Sprite({
-          position: {
-            x: 300,
-            y: 335,
-          },
-          imageSrc: "./img/npc/idleRight.png",
-          frameRate: 9,
-          frameBuffer: 10,
-          loop: true,
-          autoplay: true,
-        }),
-      ];
+//       doors = [
+//         new Sprite({
+//           position: {
+//             x: 2000,
+//             y: 2000,
+//           },
+//           imageSrc: "./img/doorOpen.png",
+//           frameRate: 5,
+//           frameBuffer: 5,
+//           loop: false,
+//           autoplay: false,
+//         }),
+//       ];
 
-      queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Hello Traveler'
-        queue.shift()
-  })
+//       npcs = [
+//         new Sprite({
+//           position: {
+//             x: 300,
+//             y: 335,
+//           },
+//           imageSrc: "./img/npc/idleRight.png",
+//           frameRate: 9,
+//           frameBuffer: 10,
+//           loop: true,
+//           autoplay: true,
+//         }),
+//       ];
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Welcome to the House'
-        queue.shift()
-  })
+//       queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'Hello Traveler'
+//         // queue.shift()
+//   })
 
-        queue.push(() => {
-        document.querySelector('#dialogueBox').innerHTML = 'Let me show you around'
-        queue.shift()
-  })
-    },
-  },
+//         queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'Welcome to the House'
+//         // queue.shift()
+//   })
 
-  6: {
-    init: () => {
-      parsedCollisions = collisionsLevel6.parse2D();
-      collisionBlocks = parsedCollisions.createObjectsFrom2D();
-      player.collisionBlocks = collisionBlocks;
-      if (player.currentAnimation) player.currentAnimation.isActive = false;
+//         queue.push(() => {
+//         document.querySelector('#dialogueBox').innerHTML = 'Let me show you around'
+//         // queue.shift()
+//   })
+        
+//     },
+//   },
 
-      background = new Sprite({
-        position: {
-          x: 0,
-          y: 0,
-        },
-        imageSrc: "./img/backgroundLevel3.png",
-      });
+//   6: {
+//     init: () => {
+//       parsedCollisions = collisionsLevel6.parse2D();
+//       collisionBlocks = parsedCollisions.createObjectsFrom2D();
+//       player.collisionBlocks = collisionBlocks;
+//       if (player.currentAnimation) player.currentAnimation.isActive = false;
 
-      doors = [
-        new Sprite({
-          position: {
-            x: 176.0,
-            y: 335,
-          },
-          imageSrc: "./img/doorOpen.png",
-          frameRate: 5,
-          frameBuffer: 5,
-          loop: false,
-          autoplay: false,
-        }),
-      ];
+//       background = new Sprite({
+//         position: {
+//           x: 0,
+//           y: 0,
+//         },
+//         imageSrc: "./img/backgroundLevel3.png",
+//       });
 
-      npcs = [
-        new Sprite({
-          position: {
-            x: 300,
-            y: 335,
-          },
-          imageSrc: "./img/npc/idleRight.png",
-          frameRate: 9,
-          frameBuffer: 10,
-          loop: true,
-          autoplay: true,
-        }),
-      ];
-    },
-  },
+//       doors = [
+//         new Sprite({
+//           position: {
+//             x: 176.0,
+//             y: 335,
+//           },
+//           imageSrc: "./img/doorOpen.png",
+//           frameRate: 5,
+//           frameBuffer: 5,
+//           loop: false,
+//           autoplay: false,
+//         }),
+//       ];
+
+//       npcs = [
+//         new Sprite({
+//           position: {
+//             x: 300,
+//             y: 335,
+//           },
+//           imageSrc: "./img/npc/idleRight.png",
+//           frameRate: 9,
+//           frameBuffer: 10,
+//           loop: true,
+//           autoplay: true,
+//         }),
+//       ];
+//     },
+  // },
 };
 
 const keys = {
