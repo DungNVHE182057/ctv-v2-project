@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { ToastMsg } from "./components/ScreenGame/ToastMsg";
 import Guide from "./components/Guide/Guide";
+import UserData from "./components/ScreenGame/UserData";
 
 function App() {
   const [css, setCss] = useState("");
@@ -24,7 +25,6 @@ function App() {
   const guide = useRef(null);
   const guideButton = useRef(null);
   const [nextLev, setNextLev] = useState(true);
-  const [prevLev, setPrevLev] = useState(true);
 
   const handleOutput = () => {
     const data = Level[level.current];
@@ -76,7 +76,9 @@ function App() {
     const output = handleOutput();
     checkNextButton(output);
     setNextLev(output);
+    
     if (output) {
+      UserData[level.current] = css
       if (streak.current > 0) streak.current = 0;
       else streak.current = streak.current - 1;
       showErrorToast(
@@ -89,6 +91,7 @@ function App() {
         ]
       );
     } else {
+      UserData[level.current] = css
       if (streak.current < 0) streak.current = 0;
       else streak.current = streak.current + 1;
       showSuccessToast(
@@ -125,22 +128,16 @@ function App() {
     if (thisGuide.style.display == "none" || thisGuide.style.display == "") { thisGuide.style.display = "block"; thisGuideButton.innerHTML = "Close"}
     else { thisGuide.style.display = "none"; thisGuideButton.innerHTML = "Guide"}
   };
-  const nextLevel = () => {
-    level.current = (level.current + 1) % Level.length;
+  const toLevel = (add) => {
+    level.current = (level.current + add) % Level.length;
+    console.log(level.current)
     setHtml(Level[level.current].html);
     setDesc(Level[level.current].desc);
     setStartCss(Level[level.current].css);
-    setToEditor(Level[level.current].toEditor);
+    setToEditor(UserData[level.current] == undefined ? Level[level.current].toEditor : UserData[level.current]);
     setNextLev(true);
   };
-  const prevLevel = () => {
-    level.current = (level.current - 1);
-    setHtml(Level[level.current].html);
-    setDesc(Level[level.current].desc);
-    setStartCss(Level[level.current].css);
-    setToEditor(Level[level.current].toEditor);
-    setPrevLev(true);
-  };
+
 
   const checkNextButton = (output) => {
     const button = document.getElementsByClassName("btn-next")[0];
@@ -152,11 +149,23 @@ function App() {
     }
   };
 
+  
+
   const handleButtonNextClick = () => {
-    nextLevel();
-    const button = document.getElementsByClassName("btn-next")[0];
-    button.style.display = "none";
+    toLevel(1);
+    const back = document.getElementsByClassName("btn-back")[0]
+    back.style.display = "block"
+    const next = document.getElementsByClassName("btn-next")[0];
+    if (UserData[level.current] == undefined) next.style.display = "none";
   };
+
+  const handleButtonBackClick = () => {
+    if (level.current > 0) toLevel(-1)
+    if (level.current == 0) {
+      document.getElementsByClassName("btn-back")[0].style.display = "none"
+    }
+  }
+  
   return (
     <div id="landing">
       <ToastContainer
@@ -192,10 +201,10 @@ function App() {
             Check
           </button>
           <button
-            style={{display:"none"}}
-            className="btn-next "
+            style={{display:((UserData[level.current] == undefined && nextLev) ? "none" : "block")}}
+            className="btn-next " 
             onClick={handleButtonNextClick}
-            disabled={nextLev}
+            
           >
             Next
           </button>
@@ -206,6 +215,11 @@ function App() {
           >
             Guide
           </button>
+          <button
+          className="btn-back"
+          onClick={handleButtonBackClick}
+          style={{display : (level.current == 0 ? "none" : "block")}}
+          >Back</button>
         </div>
       </div>
       <Footer />

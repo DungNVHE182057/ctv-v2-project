@@ -16,8 +16,10 @@ export const Level = [
     css: `${cssResult[2].css}`,
     toEditor: `/* task #1 */
 .sceneScreen { 
-  display: flex;
-
+    justify-content: ;
+    align-items: ;
+    flex-direction: ;
+    /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
 }
 `,
     expect: [
@@ -28,6 +30,10 @@ export const Level = [
         val: ["space-evenly", "center", "row-reverse"],
       },
     ],
+    userData: null,
+    setUserData: (data) => {
+      this.userData = data
+    }
   },
   //LEVEL2
   {
@@ -40,8 +46,9 @@ export const Level = [
     css: `${cssResult[1].css}`,
     toEditor: `/* task #2 */
 .sceneScreen { 
-  display: flex;
-
+    justify-content: ;
+    align-items: ;
+  /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
 }
 `,
     expect: [
@@ -52,6 +59,10 @@ export const Level = [
         val: ["space-between", "flex-end"],
       },
     ],
+    userData: null,
+    setUserData: (data) => {
+      this.userData = data
+    }
   },
   //LEVEL1
   {
@@ -66,8 +77,9 @@ export const Level = [
     css: `${cssResult[0].css}`,
     toEditor: `/* task #3 */
 .sceneScreen { 
-  display: flex;
-  
+    flex-direction: ;
+    flex-wrap: ;
+  /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
 }
 `,
     expect: [
@@ -78,6 +90,10 @@ export const Level = [
         val: ["column", "wrap"],
       },
     ],
+    userData: null,
+    setUserData: (data) => {
+      this.userData = data
+    }
   },
   //LEVEL4
   {
@@ -92,25 +108,30 @@ export const Level = [
               </html>`,
     css: `${cssResult[3].css}`,
     toEditor: `/* task #4 */
-  .sceneScreen { 
-      display: flex;
-  }
-  /*css this class*/
-  .above-container.character0{
-      /*ninja*/
-      
-  }
-  /*not css this class */
-  .above-container.character1{
-      /*knight*/
-      order: 2;  
-  }
-  /*css this class*/
-  .above-container.character2{
-      /*mage*/
-      
-  }
-      `,
+    .sceneScreen { 
+        display: ;
+    }
+    /*css this class*/
+    .above-container.character0{
+        /*ninja*/
+        order: ;
+        align-self: ;
+        
+    }
+    /*not css this class */
+    .above-container.character1{
+        /*knight*/
+        order: ;  
+    }
+    /*css this class*/
+    .above-container.character2{
+        /*mage*/
+        order: ;
+        align-self: ;
+        
+    }
+    /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
+    `,
 
     expect: [
       {
@@ -127,6 +148,10 @@ export const Level = [
         val: ["1", "flex-start"],
       },
     ],
+    userData: null,
+    setUserData: (data) => {
+      this.userData = data
+    }
   },
   //LEVEL5
   {
@@ -138,46 +163,44 @@ export const Level = [
           </html>`,
     css: `${cssResult[4].css}`,
     toEditor: `/* task #5 */
-  .row{
-    display: flex;
-  }
-  .row1.pinkArea{
-  
-  }
-  .row1.blueArea{
-      
-  }
-  .row1.orangeArea{
-      
-  }
-  
-  .row2.pinkArea{
-  
-  }
-  
-  .row3.pinkArea{
-  
-  }
-  
-  .row3.violetArea{
-  
-  }
-  
-  .row4.greenArea{
-  
-  }
-  .row4.yellowArea{
-  
-  }
-  .row5.biqueArea{
-  
-  }
-  .row5.greenArea{
-  
-  }
-  .row5.yellowArea{
-  
-  }
+    .row{
+      display: ;
+    }
+    .row1.pinkArea{
+      flex-grow: ;
+    }
+    .row1.blueArea{
+      flex-grow: ;  
+    }
+    .row1.orangeArea{
+      flex-grow: ;
+    }
+    .row2.pinkArea{
+      flex: ;
+    }
+    .row3.pinkArea{
+      flex-grow: ;
+    }
+    .row3.violetArea{
+       flex-grow: ;
+    }
+    
+    .row4.greenArea{
+      flex-basis: ;
+    }
+    .row4.yellowArea{
+      flex-basis: ;
+    }
+    .row5.biqueArea{
+      flex: ;
+    }
+    .row5.greenArea{
+      flex: ;
+    }
+    .row5.yellowArea{
+      flex: ;
+    }
+    /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
   `,
 
     expect: [
@@ -248,5 +271,10 @@ export const Level = [
         val: ["60%"],
       },
     ],
+    userData: null,
+    setUserData: (data) => {
+      this.userData = data
+    }
   },
+  
 ];
