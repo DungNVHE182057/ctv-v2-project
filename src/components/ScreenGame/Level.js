@@ -16,10 +16,7 @@ export const Level = [
     css: `${cssResult[2].css}`,
     toEditor: `/* task #1 */
 .sceneScreen { 
-    justify-content: ;
-    align-items: ;
-    flex-direction: ;
-    /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
+    display: flex;
 }
 `,
     expect: [
@@ -46,9 +43,7 @@ export const Level = [
     css: `${cssResult[1].css}`,
     toEditor: `/* task #2 */
 .sceneScreen { 
-    justify-content: ;
-    align-items: ;
-  /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
+  display: flex;
 }
 `,
     expect: [
@@ -77,9 +72,7 @@ export const Level = [
     css: `${cssResult[0].css}`,
     toEditor: `/* task #3 */
 .sceneScreen { 
-    flex-direction: ;
-    flex-wrap: ;
-  /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
+    display: flex;
 }
 `,
     expect: [
@@ -109,28 +102,25 @@ export const Level = [
     css: `${cssResult[3].css}`,
     toEditor: `/* task #4 */
     .sceneScreen { 
-        display: ;
+        display: flex;
     }
     /*css this class*/
     .above-container.character0{
         /*ninja*/
-        order: ;
-        align-self: ;
-        
+        order: 3;
+  
     }
     /*not css this class */
     .above-container.character1{
         /*knight*/
-        order: ;  
+        order: 2;  
     }
     /*css this class*/
     .above-container.character2{
         /*mage*/
-        order: ;
-        align-self: ;
+        order: 1;
         
     }
-    /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
     `,
 
     expect: [
@@ -164,41 +154,41 @@ export const Level = [
     css: `${cssResult[4].css}`,
     toEditor: `/* task #5 */
     .row{
-      display: ;
+      
     }
     .row1.pinkArea{
-      flex-grow: ;
+      
     }
     .row1.blueArea{
-      flex-grow: ;  
+        
     }
     .row1.orangeArea{
-      flex-grow: ;
+      
     }
     .row2.pinkArea{
-      flex: ;
+      
     }
     .row3.pinkArea{
-      flex-grow: ;
+      
     }
     .row3.violetArea{
-       flex-grow: ;
+       
     }
     
     .row4.greenArea{
-      flex-basis: ;
+      
     }
     .row4.yellowArea{
-      flex-basis: ;
+      
     }
     .row5.biqueArea{
-      flex: ;
+      
     }
     .row5.greenArea{
-      flex: ;
+      
     }
     .row5.yellowArea{
-      flex: ;
+      
     }
     /* Please insert value to these attributes and please do not insert more attributes. Thank you and happy learning!! */
   `,
